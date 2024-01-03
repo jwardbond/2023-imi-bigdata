@@ -1,0 +1,59 @@
+Most transactions were illegal importations from China and SS Africa. 
+Also included exports from Canada to USA and China (in particular)
+
+Laundering methods:
+- Nominees (often family members, usually spouses but can include siblings and parents)
+- Front companies
+- Layering funds btwn related accounts
+
+Many related to other organized crime groups
+
+
+Nominees can: 
+- pay for associated costs (shipping, cages, packaging), launder, own
+
+
+ILLEGAL IMPORT
+- Frequent wire transfers to jurisdictions of concern like China, Hong Kong, Australia, SSA
+- Frequently to associates named in open source info as being involved
+- Individuals often make payments to indiv/entities involved with animals (aquariums, zoos) outside of usual account activity
+- Look for similar dollar values
+- Modalities: 
+	1. Animal related account used as intermediary. e.g. zoo buys from known trafficker, then gets transfer from 	individual in Canada
+	2. Canadian indiv sends money to one country, then recieves money from another (intermediary)
+	3. Canadian trader orders wildlife through a coordinator in Aus, Asia, Africa
+		- sends funds directly to trader/poacher/breeder
+		- sends funds indirectly to coordinator (money mule? nominee)
+		- coordinator pays courier
+
+ILLEGAL EXPORT
+- Indiv recieve funds from enteties involved with animals (pet stores zoos) often in USA or overseas
+- Suspicious transactions include: 
+	- Excessive purchases to postal services, shipping, animal logistic services,cargo services
+	- Alongside purchases in animal transport related goods
+	- Often in rounded dollar amounts
+
+
+INDICATORS 
+General wildlife trade: 
+- transaction details make reference to animals
+- client linked to trafficking in media 
+- transaction details specify role of reciever of funds (e.g. email address poacher, coordinator, supplier)
+- indiv is associated with industry that could be used to facilitate illegal wildlife trade
+- indiv is linked to possesion and or advertising the sale of species of concern
+- indiv recieves a lot of transfers with wildlife related references, and has outgoing transactions to similar individuals. indiv has very few other transactions
+
+Import: 
+- Frequent transfers to individuals and/or entities locaated in jurisdictions of concern for wildlife (China, Hong Kong, Aus, SS African)
+- Payments to trad medicine entities
+- Transaction details make reference to tda medicine
+- Payments made to indiv and animal-related business
+- Purchases and/pr payments for travel to and from jurisdictions of concern
+
+Export
+- Multiple email money transfers or wire transfers referencing animals in Cnada
+- Frequent purchases and/or payments for animal related goods and services
+- Frequent payments to shipping entities
+- Payments recieved from animal related businesses inconsistent with client profile
+
+
