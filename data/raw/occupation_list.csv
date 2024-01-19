@@ -1,0 +1,251 @@
+Occupation,occ_wealth,occ_animal,occ_int
+Actor,2,0,0
+Actuary,0,0,0
+Anesthesiologist,0,0,0
+Animal Trainer,0,1,0
+Antique Dealer,1,0,1
+Antiques Dealer,1,0,1
+Arborist,0,0,0
+Architect,0,0,0
+Art Critic,0,0,0
+Art Dealer,1,0,1
+Art Gallery Owner,1,0,1
+Art Historian,0,0,0
+Artist,0,0,0
+Astronomer,0,0,0
+Auctioneer,1,0,1
+Author,0,0,0
+Auto Dealer,0,0,0
+Baker,0,0,0
+Banker,1,0,0
+Barista,0,0,0
+Bartender,0,0,0
+Beekeeper,0,1,0
+Bioengineer,0,0,0
+Biologist,0,1,0
+Book Editor,0,0,0
+Brewer,0,0,0
+Bus Driver,0,0,0
+Business Owner,0,0,2
+Butcher,0,2,0
+Call Center Representative,0,0,0
+Car Dealership Owner,0,0,0
+Carpenter,0,0,0
+Cartographer,0,0,0
+Cartoonist,0,0,0
+"Cash-intensive Business Owner (e.g., Laundromat)",0,0,0
+Cashier,0,0,0
+Casino Operator,1,0,2
+Ceramicist,0,0,0
+Chef,0,0,0
+Chemist,0,0,0
+Childcare Worker,0,0,0
+Chiropractor,0,0,0
+Choreographer,0,0,0
+Civil Servant,2,0,0
+Cleaner,0,0,0
+Comic Book Artist,0,0,0
+Commodity Broker,1,0,1
+Construction Contractor,0,0,0
+Construction Worker,0,0,0
+Corporate Executive,1,0,1
+Cryptocurrency Trader,0,0,1
+Curator,2,0,2
+Currency Exchange Owner,1,0,1
+DJ,0,0,0
+Dentist,0,0,0
+Dietician,0,0,0
+Distiller,0,0,0
+Doctor,0,0,0
+Economist,0,0,0
+Egyptologist,0,0,0
+Electrician,0,0,0
+Engineer,0,0,0
+Enologist,0,0,0
+Environmental Scientist,0,0,0
+Ethnobotanist,0,0,0
+Ethnomusicologist,0,0,0
+Event Planner,0,0,0
+Factory Worker,0,0,0
+Farm Laborer,0,0,0
+Farmer,0,0,0
+Fashion Designer,1,0,2
+Fast Food Worker,0,0,0
+Film Editor,0,0,0
+Filmmaker,2,0,0
+Financial Advisor,1,0,2
+Firefighter,0,0,0
+Fisherman,0,1,0
+Fitness Trainer,0,0,0
+Flight Attendant,0,0,0
+Florist,0,0,0
+Food Critic,0,0,0
+Food Scientist,0,0,0
+Forester,0,2,0
+Free Trade Zone Operator,1,0,1
+"Freelancer (e.g., Graphic Designer, Writer)",0,0,0
+Game Developer,0,0,0
+Gardener,0,0,0
+Gemologist,0,0,0
+Geologist,0,0,0
+Glaciologist,0,0,0
+Graphic Artist,0,0,0
+Graphologist,0,0,0
+Grocery Store Clerk,0,0,0
+Hairstylist,0,0,0
+Hedge Fund Manager,1,0,2
+High-End Real Estate Developer,1,0,2
+Historian,0,0,0
+Home Health Aide,0,0,0
+Hotelier,0,0,0
+Ichthyologist,0,1,0
+Import/Export Business Owner,1,0,1
+Import/Export Dealer,1,0,1
+Interior Designer,1,0,0
+International Consultant,1,0,1
+International Salesperson,1,0,1
+Jewelry Dealer,1,0,2
+Journalist,0,0,0
+Kinesiologist,0,0,0
+Landlord,0,0,0
+Landscaper,0,0,0
+Lawyer,1,0,2
+Lepidopterist,0,1,0
+Librarian,0,0,0
+Librarian Assistant,0,0,0
+Librettist,0,0,0
+Lifeguard,0,0,0
+Linguist,0,0,0
+Loan or Finance Company Owner,1,0,2
+Local Fair Operator,0,0,0
+Local Radio Operator,0,0,0
+Luthier,0,0,0
+"Luxury Goods Dealer (e.g., Art, Jewelry)",1,0,1
+Luxury Yacht Broker,1,0,1
+Makeup Artist,0,0,0
+Malacologist,0,1,0
+Marine Biologist,0,1,0
+Marine Engineer,0,0,0
+Maritime or Shipping Agent,0,0,1
+Massage Therapist,0,0,0
+Mechanic,0,0,0
+Meteorologist,0,0,0
+Miner,0,0,0
+Money Service Business Owner,1,0,2
+Music Producer,2,0,0
+Musician,2,0,0
+Nanny,0,0,0
+Nematologist,0,1,0
+News Anchor,0,0,0
+Nightclub or Bar Owner,2,0,0
+Non-profit Organization Director,2,0,0
+Notary Public,0,0,0
+Nurse,0,0,0
+Nutritionist,0,0,0
+Offshore Investment Advisor,1,0,1
+Offshore Trustee,1,0,1
+Online Gambling Site Operator,1,0,2
+Optometrist,0,0,0
+Osteologist,0,0,0
+Other,0,0,0
+Paramedic,0,0,0
+Pastry Chef,0,0,0
+Pawn Shop Owner,2,0,2
+Payment Processors Owner,2,0,2
+Pediatrician,0,0,0
+Pedologist,0,0,0
+Pet Groomer,0,1,0
+Pharmacist,0,0,0
+Photographer,0,0,0
+Physical Therapist,0,0,0
+Physicist,0,0,0
+Pilot,0,0,2
+Plumber,0,0,0
+Police Officer,0,0,0
+Political Scientist,0,0,0
+Postal Worker,0,0,0
+Precious Metals Dealer,1,0,2
+Printmaker,0,0,0
+Private Banker,1,0,1
+Private Equity Fund Manager,1,0,1
+Private Jet Broker,1,0,1
+Private Security Company Owner,1,0,1
+Private Tutor,0,0,0
+Property Manager,2,0,0
+Psychologist,0,0,0
+Radio Host,0,0,0
+Radiologist,0,0,0
+Real Estate Agent,1,0,2
+Real Estate Broker,1,0,2
+Receptionist,0,0,0
+Research Scientist,0,0,0
+Retail Salesperson,0,0,0
+Retired,0,0,0
+School Bus Driver,0,0,0
+School Teacher,0,0,0
+Sculptor,0,0,0
+Security Guard,0,0,0
+Semiotician,0,0,0
+Set Designer,0,0,0
+Shell Company Operator,1,0,1
+Sinologist,0,0,0
+Social Worker,0,0,0
+Sociologist,0,0,0
+Software Developer,0,0,0
+Sommelier,2,0,0
+Sound Engineer,0,0,0
+Sports Agent,2,0,0
+Statistician,0,0,0
+Stock Broker,1,0,2
+Student,0,0,0
+Surgeon,0,0,0
+Surveyor,0,0,0
+TV Producer,0,0,0
+Tailor,0,0,0
+Tattoo Artist,0,0,0
+Tax Advisor,1,0,1
+Taxi Driver,0,0,0
+Telemarketer,0,0,0
+Theater Director,0,0,0
+Therapist,0,0,0
+Tour Guide,0,0,2
+Translator,0,0,0
+Travel Agency Owner,0,0,2
+Travel Agent,0,0,2
+Trust and Company Service Provider,1,0,2
+Unemployed,0,0,0
+University Professor,2,0,2
+Unknown,0,0,0
+Urban Planner,0,0,0
+Venture Capitalist,1,0,1
+Veterinarian,0,1,0
+Veterinarian Assistant,0,1,0
+Videographer,0,0,0
+Virtual Asset Service Providers,0,0,2
+Waiter/Waitress,0,0,0
+Warehouse Worker,0,0,0
+Wedding Planner,0,0,0
+Window Cleaner,0,0,0
+Zookeeper,0,1,0
+Archaeologist,0,0,0
+Astrophysicist,0,0,0
+Cicerone,0,0,0
+Coffee Roaster,0,0,0
+Cryoseismologist,0,0,0
+Dendrochronologist,0,0,0
+Entomologist,0,1,0
+Herpetologist,0,1,0
+Hydrologist,0,0,0
+Illustrator,0,0,0
+Limnologist,0,1,0
+Literary Critic,0,0,0
+Mycologist,0,0,0
+Numismatist,0,0,0
+Oceanographer,0,2,0
+Ornithologist,0,1,0
+Paleontologist,0,0,0
+Philatelist,0,0,0
+Seismologist,0,0,0
+Vexillologist,0,0,0
+Voice Actor,0,0,0
+Volcanologist,0,0,0
