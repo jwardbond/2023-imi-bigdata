@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Interactive Data Table with Vis.js Graph</title>
+    <title>Wildlife Trafficking Tracker</title>
     <!-- Include DataTables CSS, jQuery,d Vis.js CSS, and Bootstrap 5 -->
     <link href="https://visjs.github.io/vis-network/styles/vis-network.min.css" rel="stylesheet" type="text/css" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -12,11 +12,13 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://visjs.github.io/vis-network/standalone/umd/vis-network.min.js"></script>
 </head>
+
 <body>
+    <h1>Wildlife Trafficking Tracker</h1>
     <div class="container">
         <div class="row">
           <div class="col-6">
-            <table id="dataTable" class="table compact" style="width:80%">
+            <table id="dataTable" class="table table-hover" style="width:80%">
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -37,6 +39,8 @@
 
     <script>
         $(document).ready(function() {
+
+            // instantiates the main table
             var table = $('#dataTable').DataTable({
                 ajax: {
                     url: 'http://127.0.0.1:5000/init-data',
@@ -54,12 +58,28 @@
                         "<'row'<'col-sm-12'p>>"            // Pagination on its own row
             });
 
-            table.on('click', 'tbody tr', function () {
-                var row = table.row(this).data();
-                loadGraph(row.id);
+
+            // handles clickin on table row
+            table.on('click', 'tbody tr', function (e) {
+                let currentRow = $(this);
+
+                // Get data of the current row and call loadGraph
+                var rowData = table.row(this).data();
+                loadGraph(rowData.id);
+
+                // Remove 'selected' class from all rows except the current one
+                table.rows('.selected').nodes().each((row) => row.classList.remove('selected'));
+
+                // Toggle 'selected' class on the current row
+                currentRow.toggleClass('selected');
             });
 
+            
+            // loads a graph
             function loadGraph(id) {
+                var container = document.getElementById('graphContainer');
+                container.innerHTML = `<div class="spinner-border"></div> <p>Loading info for customer # ${id}<p>`; // You can style this as needed
+
                 fetch('http://127.0.0.1:5000/get-graph?id='+ id)
                 .then(response => {
                     // Check if the response is ok (status code 200-299)
@@ -69,17 +89,26 @@
                     return response.json();
                 })
                 .then(data => {
-                    // Assuming 'data' contains 'nodes' and 'edges' in the correct format
                     var nodes = new vis.DataSet(data.nodes);
                     var edges = new vis.DataSet(data.edges);
 
-                    var container = document.getElementById('graphContainer');
                     var graphData = {
                         nodes: nodes,
                         edges: edges
                     };
                     var options = {edges: {arrows: 'to'}}; // Customize Vis.js options if needed
                     var network = new vis.Network(container, graphData, options);
+
+                    network.on("doubleClick", function (params) {
+                        // params.nodes and params.edges contain the ids of the clicked nodes and edges
+                        if (params.nodes.length > 0) {
+                            var node = params.nodes[0];
+                            window.open(`user.html?id=${node}`)
+                            // Handle double-click on node here
+                        } else if (params.edges.length > 0) {
+                            // Handle double-click on edge here, maybe we will add a transaction page?
+                        }
+                    });
                 })
                 .catch(error => {
                     console.error('There was a problem with the fetch operation: ', error);
@@ -97,6 +126,13 @@
         
         .dataTables_paginate {
             float: left !important;
+        }
+
+        /* Style for the spinner */
+        .spinner-border {
+            width: 5rem; /* Bigger spinner */
+            height: 5rem; /* Bigger spinner */
+            margin-right: 10px; /* Space between spinner and text */
         }
 
     </style>

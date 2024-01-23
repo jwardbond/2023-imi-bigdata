@@ -44,6 +44,25 @@ def get_graph():
     return networkx_to_json(graph)
 
 
+@app.route('/get-user-data')
+def get_user_data():
+    id = request.args.get('id')
+    
+    kyc_this_id = kyc.loc[kyc['cust_id'] == id].squeeze()
+    result = {
+        'id':id,
+        'name':kyc_this_id['Name'],
+        'gender':kyc_this_id['Gender'],
+        'occupation':kyc_this_id['Occupation'],
+        'age':kyc_this_id['Age'],
+        'tenure':kyc_this_id['Tenure']
+    }
+
+    # eventually add more stuff, like transactions
+
+    return jsonify(result)
+
+
 def make_ego_graph(graph, node, pre_radius, post_radius):
     # don't want out-edges from bank
     graph.remove_edges_from(list(graph.edges('BANK')))
