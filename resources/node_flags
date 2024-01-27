@@ -1,0 +1,22 @@
+`agg_at_risk`
+`agg_cad_at_risk`
+`agg_role`
+`agg_trad_med`
+
+`agg_to_country`
+`agg_from_country`
+
+`agg_large_dep`
+`agg_large_wthd`
+
+- `total_wthd`
+    - Some sort of score for unusual total withdrawals
+- `total_dep`
+    - Some sort fo score for unusual total deposits
+  
+
+`agg_to_animal`
+`agg_from_animal`
+`agg_to_animal_large`
+`agg_from_animal_large`
+`agg_to_shipping`
