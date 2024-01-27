@@ -1,4 +1,4 @@
-Occupation,occ_wealth,occ_animal,occ_int
+occupation,occ_wealth,occ_animal,occ_int
 Actor,1,0,0
 Civil Servant,0,0,0
 Filmmaker,1,0,0
