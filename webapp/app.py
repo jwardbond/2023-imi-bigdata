@@ -14,6 +14,8 @@ kyc = pd.read_csv("../data/raw/kyc.csv")
 
 kyc_display = kyc[['cust_id', 'name']].to_dict(orient='records')
 
+emt['trxn_message'] = emt['trxn_message'].fillna('')
+
 # making the network
 G = nx.MultiDiGraph()
 for index, row in emt.iterrows():
@@ -48,18 +50,19 @@ def get_graph():
 @app.route('/get-user-data')
 def get_user_data():
     id = request.args.get('id')
-    
-    kyc_this_id = kyc.loc[kyc['cust_id'] == id].squeeze()
-    result = {
-        'id':id,
-        'name':kyc_this_id['name'],
-        'gender':kyc_this_id['gender'],
-        'occupation':kyc_this_id['occupation'],
-        'age':kyc_this_id['age'],
-        'tenure':kyc_this_id['tenure']
-    }
 
-    # eventually add more stuff, like transactions
+    result = {'id': id}
+
+    result['kyc'] = kyc.loc[kyc['cust_id'] == id].squeeze().to_dict()
+
+    result['emt_sent'] = emt.loc[emt['cust_id_sender'] == id].to_dict(orient='records') # current person is sender
+    result['emt_rec'] = emt.loc[emt['cust_id_receiver'] == id].to_dict(orient='records') # current person is recipient
+
+    result['wire_sent'] = wire.loc[wire['cust_id_sender'] == id].to_dict(orient='records')
+    result['wire_rec'] = wire.loc[wire['cust_id_receiver'] == id].to_dict(orient='records')
+
+    result['cash_dep'] = cash.loc[(cash['type']=='deposit') & (cash['cust_id'] == id)].to_dict(orient='records')
+    result['cash_wit'] = cash.loc[(cash['type']=='withdrawal') & (cash['cust_id'] == id)].to_dict(orient='records')
 
     return jsonify(result)
 
