@@ -47,7 +47,7 @@
                     dataSrc: ''
                 },
                 columns: [
-                    { data: 'id' },
+                    { data: 'cust_id' },
                     { data: 'name' }
                 ],
                 "responsive": true,
@@ -65,7 +65,7 @@
 
                 // Get data of the current row and call loadGraph
                 var rowData = table.row(this).data();
-                loadGraph(rowData.id);
+                loadGraph(rowData.cust_id);
 
                 // Remove 'selected' class from all rows except the current one
                 table.rows('.selected').nodes().each((row) => row.classList.remove('selected'));

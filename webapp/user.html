@@ -9,15 +9,103 @@
 </head>
 <body>
     <div class="container mt-5">
-        <h1>User Information</h1>
+        <h1>Information for <span id="custId"></span></h1>
+
+        <h2></h2>
+
         <div id="userInfo">
-            <p><strong>ID:</strong> <span id="userId"></span></p>
             <p><strong>Name:</strong> <span id="userName"></span></p>
             <p><strong>Occupation:</strong> <span id="userOccupation"></span></p>
             <p><strong>Age:</strong> <span id="userAge"></span></p>
             <p><strong>Sex:</strong> <span id="userSex"></span></p>
             <p><strong>Years of Tenure:</strong> <span id="userTenure"></span></p>
         </div>
+
+        <h2>Transaction History</h2>
+
+        <h3>Email money transfers</h3>
+
+        <h4>Sent</h4>
+
+        <table class="table table-striped" id="emt_sent">
+            <thead>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Amount ($)</th>
+                <th>Message</th>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+
+        <h4>Received</h4>
+
+        <table class="table table-striped" id="emt_rec">
+            <thead>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Amount ($)</th>
+                <th>Message</th>
+            </thead>
+            <tbody>
+                
+            </tbody>
+        </table>
+
+        <h3>Wire transfers</h3>
+
+        <h4>Sent</h4>
+
+        <table class="table table-striped" id="wire_sent">
+            <thead>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Amount ($)</th>
+                <th>Country</th>
+            </thead>
+            <tbody>
+                
+            </tbody>
+        </table>
+
+        <h4>Received</h4>
+
+        <table class="table table-striped" id="wire_rec">
+            <thead>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Amount ($)</th>
+                <th>Country</th>
+            </thead>
+            <tbody>
+                
+            </tbody>
+        </table>
+
+        <h3>Cash transactions</h3>
+
+        <h4>Deposits</h4>
+
+        <table class="table table-striped" id="cash_dep">
+            <thead>
+                <th>Amount ($)</th>
+            </thead>
+            <tbody>
+                
+            </tbody>
+        </table>
+
+        <h4>Withdrawals</h4>
+
+        <table class="table table-striped" id="cash_wit">
+            <thead>
+                <th>Amount ($)</th>
+            </thead>
+            <tbody>
+                
+            </tbody>
+        </table>
     </div>
 
     <script>
@@ -31,14 +119,80 @@
                 fetch(`http://127.0.0.1:5000/get-user-data?id=${id}`)
                     .then(response => response.json())
                     .then(data => {
-                        // Populate HTML with the data
+                        // Populate kyc display
                         console.log(data)
-                        document.getElementById('userId').textContent = data.id;
-                        document.getElementById('userName').textContent = data.name;
-                        document.getElementById('userOccupation').textContent = data.occupation;
-                        document.getElementById('userAge').textContent = data.age;
-                        document.getElementById('userSex').textContent = data.gender;
-                        document.getElementById('userTenure').textContent = data.tenure;
+
+                        document.getElementById('custId').textContent = data.id;
+                        document.getElementById('userName').textContent = data.kyc.name;
+                        document.getElementById('userOccupation').textContent = data.kyc.occupation;
+                        document.getElementById('userAge').textContent = data.kyc.age;
+                        document.getElementById('userSex').textContent = data.kyc.gender;
+                        document.getElementById('userTenure').textContent = data.kyc.tenure;
+
+                        // Populate emt tables
+                        const emt_sent_table = document.getElementById('emt_sent').getElementsByTagName('tbody')[0];
+                        data.emt_sent.forEach(item => {
+                            emt_sent_table.innerHTML += `<tr>
+                                <td><a href="user.html?id=${item.cust_id_receiver}">${item.cust_id_receiver}</a></td>
+                                <td>${item.name_receiver}</td>
+                                <td>${item.emt_value}</td>
+                                <td>${item.trxn_message}</td>
+                                </tr>
+                            `
+                        })
+
+                        const emt_rec_table = document.getElementById('emt_rec').getElementsByTagName('tbody')[0];
+                        data.emt_rec.forEach(item => {
+                            emt_rec_table.innerHTML += `<tr>
+                                <td><a href="user.html?id=${item.cust_id_sender}">${item.cust_id_sender}</a></td>
+                                <td>${item.name_sender}</td>
+                                <td>${item.emt_value}</td>
+                                <td>${item.trxn_message}</td>
+                                </tr>
+                            `
+                        })
+
+                        // Populate wire tables
+                        const wire_sent_table = document.getElementById('wire_sent').getElementsByTagName('tbody')[0];
+                        data.wire_sent.forEach(item => {
+                            wire_sent_table.innerHTML += `<tr>
+                                <td><a href="user.html?id=${item.cust_id_receiver}">${item.cust_id_receiver}</a></td>
+                                <td>${item.name_receiver}</td>
+                                <td>${item.trxn_value}</td>
+                                <td>${item.country_receiver}</td>
+                                </tr>
+                            `
+                        })
+
+                        const wire_rec_table = document.getElementById('wire_rec').getElementsByTagName('tbody')[0];
+                        data.wire_rec.forEach(item => {
+                            wire_rec_table.innerHTML += `<tr>
+                                <td><a href="user.html?id=${item.cust_id_sender}">${item.cust_id_sender}</a></td>
+                                <td>${item.name_sender}</td>
+                                <td>${item.trxn_value}</td>
+                                <td>${item.country_sender}</td>
+                                </tr>
+                            `
+                        })
+
+                        // Populate cash tables
+                        const cash_dep_table = document.getElementById('cash_dep').getElementsByTagName('tbody')[0];
+                        data.cash_dep.forEach(item => {
+                            cash_dep_table.innerHTML += `<tr>
+                                <td>${item.trxn_amount}</td>
+                                </tr>
+                            `
+                        })
+
+                        const cash_wit_table = document.getElementById('cash_wit').getElementsByTagName('tbody')[0];
+                        data.cash_wit.forEach(item => {
+                            cash_wit_table.innerHTML += `<tr>
+                                <td>${item.trxn_amount}</td>
+                                </tr>
+                            `
+                        })
+
+                        // hmmm... the code for table population could probs be modularized
                     })
                     .catch(error => console.error('Error:', error));
             } 
