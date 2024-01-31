@@ -6,6 +6,7 @@ iframe_figures/
 __pycache__/
 *.py[cod]
 *$py.class
+.DS_STORE
 
 # C extensions
 *.so
