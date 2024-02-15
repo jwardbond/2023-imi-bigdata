@@ -92,6 +92,9 @@
                     var nodes = new vis.DataSet(data.nodes);
                     var edges = new vis.DataSet(data.edges);
 
+                    // make id's node a different color
+                    nodes.update({id: id, color: {background: '#C0C0C0'}});
+
                     var graphData = {
                         nodes: nodes,
                         edges: edges
