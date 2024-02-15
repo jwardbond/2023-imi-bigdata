@@ -7,10 +7,10 @@ app = Flask(__name__)
 cors = CORS(app)
 
 # getting the data
-cash = pd.read_csv("../data/raw/cash.csv")
-emt = pd.read_csv("../data/raw/emt.csv")
-wire = pd.read_csv("../data/raw/wire.csv")
-kyc = pd.read_csv("../data/raw/kyc.csv")
+cash = pd.read_csv("../data/processed/cash.csv")
+emt = pd.read_csv("../data/processed/emt.csv")
+wire = pd.read_csv("../data/processed/wire.csv")
+kyc = pd.read_csv("../data/processed/kyc.csv")
 
 kyc_display = kyc[['cust_id', 'name']].to_dict(orient='records')
 
