@@ -1,0 +1,3 @@
+- Westlaw: search query "trafficking", cases, used classification to filter for wildlife crimes
+- Environment Canada Offenders Registry: https://environmental-protection.canada.ca/offenders-registry
+- Wildlife Trade Portal: https://wildlifetradeportal.org/incidents
