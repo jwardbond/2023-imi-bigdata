@@ -8,13 +8,13 @@ app = Flask(__name__)
 cors = CORS(app)
 
 # getting the data
-nodes = pd.read_parquet("../data/processed/nodes.parquet")
+nodes = pd.read_parquet("../data/processed/nodes_dedup.parquet")
 cash = pd.read_parquet("../data/processed/cash.parquet")
 emt = pd.read_parquet("../data/processed/emt.parquet")
 wire = pd.read_parquet("../data/processed/wire.parquet")
 kyc = pd.read_parquet("../data/processed/kyc.parquet")
 
-main_table = jsonify(nodes[['cust_id', 'name']].to_dict(orient='records'))
+main_table = nodes[['cust_id', 'name', 'score']].to_dict(orient='records')
 
 emt['trxn_message'] = emt['trxn_message'].fillna('')
 cash = cash.replace(np.nan, None)
@@ -25,7 +25,7 @@ kyc = kyc.replace(np.nan, None)
 # making the network
 G = nx.MultiDiGraph()
 for index, row in nodes.iterrows():
-    G.add_node(row['cust_id'], display_info = row['name'] if row['name'] else ('External from ' + row['country'] if row['country'] else 'External'))
+    G.add_node(row['cust_id'], score = row['score'], display_info = row['name'] if row['name'] else ('External from ' + row['country'] if row['country'] else 'External'))
 
 for index, row in emt.iterrows():
     G.add_edge(row['cust_id_sender'], row['cust_id_receiver'], amount=row['emt_value'], trxn_type='emt', trxn_id=row['trxn_id'], display_info = 'EMT, ${}'.format(row['emt_value']))
@@ -47,7 +47,7 @@ print("Loaded all data, with {} nodes and {} edges".format(G.number_of_nodes(), 
 
 @app.route('/init-data')
 def init_data():
-    return main_table
+    return jsonify(main_table)
 
 
 @app.route('/get-graph')
@@ -65,7 +65,6 @@ def get_user_data():
 
     result['kyc'] = kyc.loc[kyc['cust_id'] == id].squeeze().to_dict()
     result['kyc']['country'] = nodes.loc[nodes['cust_id'] == id]['country'].iloc[0]
-    result['kyc']['occ_flags'] = get_flags(id, nodes, get_cols_prefix('occ_'))
 
     result['emt_sent'] = emt.loc[emt['cust_id_sender'] == id].to_dict(orient='records') # current person is sender
     result['emt_rec'] = emt.loc[emt['cust_id_receiver'] == id].to_dict(orient='records') # current person is recipient
@@ -82,6 +81,7 @@ def get_user_data():
 # takes id, df, and list of columns
 # it then returns a list of columns for which the value for the id is 1
 # these are the flags!
+# DEPRECATED: not used because I handle this on the frontend, keeping it here in case
 def get_flags(id, df, columns):
     row = df.loc[df['cust_id'] == id].iloc[0][columns]
     flags = [index for index, value in row.items() if value == 1.0]
@@ -98,7 +98,7 @@ def make_ego_graph(graph, graph_rev, node, pre_radius, post_radius):
 
     pre_nodes = nx.generators.ego_graph(graph_rev, node, radius=pre_radius, center=False).nodes()
     post_nodes = nx.generators.ego_graph(graph, node, radius=post_radius, center=False).nodes()
-    subgraph = nx.induced_subgraph(graph, list(set(pre_nodes).union(set(post_nodes))) + [node])   
+    subgraph = nx.Graph(nx.induced_subgraph(graph, list(set(pre_nodes).union(set(post_nodes))) + [node]))
 
     # sometimes 'bank' is an isolated node so just remove it for cleanliness
     subgraph.remove_nodes_from(list(nx.isolates(subgraph)))         
@@ -108,7 +108,7 @@ def make_ego_graph(graph, graph_rev, node, pre_radius, post_radius):
 
 # returns nodes and edges as json in the format that vis.js expects it
 def networkx_to_json(graph):
-    nodes = [{'id': n, 'label': n, 'title': graph.nodes[n]['display_info']} for n in graph.nodes()]
+    nodes = [{'id': n, 'label': n, 'value': graph.nodes[n]['score'], 'title': graph.nodes[n]['display_info']} for n in graph.nodes()]
     edges = [{'from': u, 'to': v, 'title': graph.edges[u,v,k]['display_info']} for u, v, k in graph.edges(keys=True)]
     return jsonify(nodes=nodes, edges=edges)
 

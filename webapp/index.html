@@ -23,6 +23,7 @@
                     <tr>
                         <th>ID</th>
                         <th>Name</th>
+                        <th>Suspicion Score</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -48,14 +49,16 @@
                 },
                 columns: [
                     { data: 'cust_id' },
-                    { data: 'name' }
+                    { data: 'name' },
+                    { data: 'score' }
                 ],
                 "responsive": true,
                 "lengthChange": false,
                 "dom": "<'row'<'col-sm-12 col-md-6'f>>" +  // Search box on the left
                         "<'row'<'col-sm-12'tr>>" +         // Table
                         "<'row'<'col-sm-12'i>>" +          // Info (like "Showing 1 to 10 of 50 entries") on its own row
-                        "<'row'<'col-sm-12'p>>"            // Pagination on its own row
+                        "<'row'<'col-sm-12'p>>",            // Pagination on its own row
+                "order": [[2, "desc"]]
             });
 
 
