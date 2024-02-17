@@ -8,7 +8,7 @@ app = Flask(__name__)
 cors = CORS(app)
 
 # getting the data
-nodes = pd.read_parquet("../data/processed/nodes_dedup.parquet")
+nodes = pd.read_parquet("../data/processed/nodes.parquet")
 cash = pd.read_parquet("../data/processed/cash.parquet")
 emt = pd.read_parquet("../data/processed/emt.parquet")
 wire = pd.read_parquet("../data/processed/wire.parquet")
