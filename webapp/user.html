@@ -25,15 +25,18 @@
             <p><strong>Name:</strong> <span id="userName"></span></p>
             <p><strong>Country:</strong> <span id="userCountry"></span> <span id="userCountryFlag" class="fi"></span></p>
             <p><strong>Occupation:</strong> <span id="userOccupation"></span> </p>
-            <!-- <i id="userOccupationFlag" class="bi bi-exclamation-diamond" style="display: none; color: red;" data-bs-toggle="tooltip" data-bs-html="true" title=""></i> -->
             <p><strong>Age:</strong> <span id="userAge"></span></p>
             <p><strong>Sex:</strong> <span id="userSex"></span></p>
             <p><strong>Years of Tenure:</strong> <span id="userTenure"></span></p>
         </div>
 
         <div id="external_userInfo" style="display: none;">
-            <p><strong>Name:</strong> External customer, information unavailable</span></p>
-            <p><strong>Country:</strong> <span id="external_userCountry"></span> <span id="external_userCountryFlag" class="fi"></span></p>
+            <p><strong>Name:</strong> <span>Unavailable</span></p>
+            <p><strong>Country:</strong> <span id="external_userCountry">Unavailable</span> <span id="external_userCountryFlag" class="fi"></span></p>
+        </div>
+
+        <div>
+            <p><strong>Suspicion score:</strong> <span id="susScore"></span></p>
         </div>
 
         <h2>Transaction History</h2>
@@ -218,9 +221,12 @@
                                 document.getElementById('external_userCountryFlag').classList.add("fi-" + data.kyc.country.toLowerCase())
                             }
                             else {
-                                document.getElementById('external_userCountry').textContent = "Unavailable"
+                                document.getElementById('external_userCountry').textContent 
                             }
                         }
+
+                        document.getElementById('susScore').textContent = data.score
+
 
                         
                         // Populate emt tables

@@ -25,23 +25,25 @@ kyc = kyc.replace(np.nan, None)
 # making the network
 G = nx.MultiDiGraph()
 for index, row in nodes.iterrows():
-    G.add_node(row['cust_id'], score = row['score'], display_info = row['name'] if row['name'] else ('External from ' + row['country'] if row['country'] else 'External'))
+    G.add_node(row['cust_id'], display_info = "{}\n{}".format(row['name'] if row['name'] else ('External from ' + row['country'] if row['country'] else 'External'), row['cust_id']))
 
 for index, row in emt.iterrows():
-    G.add_edge(row['cust_id_sender'], row['cust_id_receiver'], amount=row['emt_value'], trxn_type='emt', trxn_id=row['trxn_id'], display_info = 'EMT, ${}'.format(row['emt_value']))
+    G.add_edge(row['cust_id_sender'], row['cust_id_receiver'], display_info = 'EMT, ${}'.format(row['emt_value']))
 
 for index, row in wire.iterrows():
-    G.add_edge(row['cust_id_sender'], row['cust_id_receiver'], amount=row['trxn_value'], trxn_type='wire', trxn_id=row['trxn_id'], display_info = 'Wire, ${}'.format(row['trxn_value']))
+    G.add_edge(row['cust_id_sender'], row['cust_id_receiver'], display_info = 'Wire, ${}'.format(row['trxn_value']))
 
 G.add_node('BANK', display_info = 'BANK')
 for index, row in cash.iterrows():
     if row['type'] == 'deposit':
-        G.add_edge(row['cust_id'], 'BANK', amount=row['trxn_amount'], trxn_type='cash', trxn_id=row['trxn_id'], display_info = 'Cash deposit, ${}'.format(row['trxn_amount']))
+        G.add_edge(row['cust_id'], 'BANK', display_info = 'Cash deposit, ${}'.format(row['trxn_amount']))
     if row['type'] == 'withdrawal':
-        G.add_edge('BANK', row['cust_id'], amount=row['trxn_amount'], trxn_type='cash', trxn_id=row['trxn_id'], display_info = 'Cash withdrawal, ${}'.format(row['trxn_amount']))
+        G.add_edge('BANK', row['cust_id'], display_info = 'Cash withdrawal, ${}'.format(row['trxn_amount']))
 
+G_nobank = G.copy()
+G_nobank.remove_edges_from(list(G.edges('BANK')))
+G_nobank_rev = G_nobank.reverse()
 
-G_rev = G.reverse()
 
 print("Loaded all data, with {} nodes and {} edges".format(G.number_of_nodes(), G.number_of_edges()))
 
@@ -53,7 +55,7 @@ def init_data():
 @app.route('/get-graph')
 def get_graph():
     id = request.args.get('id')
-    graph = make_ego_graph(G, G_rev, id, 1, 2)
+    graph = make_ego_graph(G_nobank, G_nobank_rev, id, 2, 2)
     return networkx_to_json(graph)
 
 
@@ -61,7 +63,12 @@ def get_graph():
 def get_user_data():
     id = request.args.get('id')
 
+    if id == "BANK":
+        return jsonify({})
+
     result = {'id': id}
+
+    result['score'] = nodes.loc[nodes['cust_id'] == id]['score'].squeeze() 
 
     result['kyc'] = kyc.loc[kyc['cust_id'] == id].squeeze().to_dict()
     result['kyc']['country'] = nodes.loc[nodes['cust_id'] == id]['country'].iloc[0]
@@ -93,12 +100,10 @@ def get_cols_prefix(df, prefix):
 
 
 def make_ego_graph(graph, graph_rev, node, pre_radius, post_radius):
-    # don't want out-edges from bank
-    graph.remove_edges_from(list(graph.edges('BANK')))
 
     pre_nodes = nx.generators.ego_graph(graph_rev, node, radius=pre_radius, center=False).nodes()
     post_nodes = nx.generators.ego_graph(graph, node, radius=post_radius, center=False).nodes()
-    subgraph = nx.Graph(nx.induced_subgraph(graph, list(set(pre_nodes).union(set(post_nodes))) + [node]))
+    subgraph = nx.induced_subgraph(graph, list(set(pre_nodes).union(set(post_nodes))) + [node]).copy() # do copy because otherwise nx will freeze graph
 
     # sometimes 'bank' is an isolated node so just remove it for cleanliness
     subgraph.remove_nodes_from(list(nx.isolates(subgraph)))         
@@ -108,9 +113,10 @@ def make_ego_graph(graph, graph_rev, node, pre_radius, post_radius):
 
 # returns nodes and edges as json in the format that vis.js expects it
 def networkx_to_json(graph):
-    nodes = [{'id': n, 'label': n, 'value': graph.nodes[n]['score'], 'title': graph.nodes[n]['display_info']} for n in graph.nodes()]
-    edges = [{'from': u, 'to': v, 'title': graph.edges[u,v,k]['display_info']} for u, v, k in graph.edges(keys=True)]
-    return jsonify(nodes=nodes, edges=edges)
+    return_nodes = [{'id': n, 'label': '', 'value': nodes.loc[nodes['cust_id']==n]['score'].squeeze() if n != 'BANK' else 0.25, 'title': graph.nodes[n]['display_info']} if graph.nodes[n]['display_info'] else n for n in graph.nodes()]
+    return_edges = [{'from': u, 'to': v, 'title': graph.edges[u,v,k]['display_info']} for u, v, k in graph.edges(keys=True)]
+    
+    return jsonify({'nodes':return_nodes, 'edges':return_edges})
 
 
 if __name__ == '__main__':

@@ -50,7 +50,13 @@
                 columns: [
                     { data: 'cust_id' },
                     { data: 'name' },
-                    { data: 'score' }
+                    {
+                        data: 'score',
+                        // show score to 2 decimal places
+                        render: function(data, type, row) {
+                            return parseFloat(data).toFixed(2);
+                        }
+                    }
                 ],
                 "responsive": true,
                 "lengthChange": false,
@@ -62,7 +68,7 @@
             });
 
 
-            // handles clickin on table row
+            // handles clicking on table row
             table.on('click', 'tbody tr', function (e) {
                 let currentRow = $(this);
 
@@ -95,22 +101,31 @@
                     var nodes = new vis.DataSet(data.nodes);
                     var edges = new vis.DataSet(data.edges);
 
-                    // make id's node a different color
+                    console.log(nodes);
+
+                    // make id's node silver
                     nodes.update({id: id, color: {background: '#C0C0C0'}});
+                    // make bank's node green
+                    nodes.update({id: 'BANK', color: {background: '#008000'}});
 
                     var graphData = {
                         nodes: nodes,
                         edges: edges
                     };
-                    var options = {edges: {arrows: 'to'}}; // Customize Vis.js options if needed
+                    var options = {
+                        edges: {arrows: 'to'},
+                        nodes: {shape: 'dot', scaling: {label: true}}
+                    }; 
                     var network = new vis.Network(container, graphData, options);
 
                     network.on("doubleClick", function (params) {
                         // params.nodes and params.edges contain the ids of the clicked nodes and edges
                         if (params.nodes.length > 0) {
-                            var node = params.nodes[0];
-                            window.open(`user.html?id=${node}`)
                             // Handle double-click on node here
+                            var node = params.nodes[0];
+                            if (node != "BANK") {
+                                window.open(`user.html?id=${node}`)
+                            }
                         } else if (params.edges.length > 0) {
                             // Handle double-click on edge here, maybe we will add a transaction page?
                         }
