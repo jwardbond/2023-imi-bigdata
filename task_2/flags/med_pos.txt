@@ -1,0 +1,4 @@
+breeder
+coordinater
+poacher
+trader
