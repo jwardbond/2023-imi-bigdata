@@ -15,8 +15,6 @@ emt = pd.read_parquet("../data/processed/emt.parquet")
 wire = pd.read_parquet("../data/processed/wire.parquet")
 kyc = pd.read_parquet("../data/processed/kyc.parquet")
 
-main_table = nodes[['cust_id', 'name', 'score']].to_dict(orient='records')
-
 emt['trxn_message'] = emt['trxn_message'].fillna('')
 cash = cash.replace(np.nan, None)
 emt = emt.replace(np.nan, None)
@@ -29,6 +27,13 @@ nodes['is_rough_named_trafficker'] = ((nodes['named_trafficker'] < 1) & (nodes['
 # for named trafficker sources etc
 with open("../task_3/names_metadata.json") as file:
     names_metadata = json.load(file)
+
+nodes['named_trafficker_description'] = 'No'
+nodes.loc[nodes['is_exact_named_trafficker'], 'named_trafficker_description'] = 'Yes'
+nodes.loc[nodes['is_rough_named_trafficker'], 'named_trafficker_description'] = 'Maybe'
+
+
+main_table = nodes[['cust_id', 'name', 'score', 'named_trafficker_description']].to_dict(orient='records')
 
 
 # making the network
@@ -125,15 +130,21 @@ def make_ego_graph(graph, graph_rev, node, pre_radius, post_radius):
     subgraph = nx.induced_subgraph(graph, list(set(pre_nodes).union(set(post_nodes))) + [node]).copy() # do copy because otherwise nx will freeze graph
 
     # sometimes 'bank' is an isolated node so just remove it for cleanliness
-    subgraph.remove_nodes_from(list(nx.isolates(subgraph)))         
+    subgraph.remove_nodes_from(list(nx.isolates(subgraph))) 
     
     return subgraph
 
 
 # returns nodes and edges as json in the format that vis.js expects it
 def networkx_to_json(graph):
-    return_nodes = [{'id': n, 'label': '', 'value': nodes.loc[nodes['cust_id']==n]['score'].squeeze() if n != 'BANK' else 0.25, 'title': graph.nodes[n]['display_info']} if graph.nodes[n]['display_info'] else n for n in graph.nodes()]
-    return_edges = [{'from': u, 'to': v, 'title': graph.edges[u,v,k]['display_info']} for u, v, k in graph.edges(keys=True)]
+    return_nodes = [{'id': n, 
+                     'label': '', 
+                     'value': nodes.loc[nodes['cust_id']==n]['score'].squeeze() if n != 'BANK' else 0.25, 
+                     'title': graph.nodes[n]['display_info'] if graph.nodes[n]['display_info'] else n,
+                     'color': '#008000' if n == 'BANK' else ('#FF5733' if 'EXT' in n else '#3355FF')
+                     } for n in graph.nodes()]
+    return_edges = [{'from': u, 
+                     'to': v, 'title': graph.edges[u,v,k]['display_info']} for u, v, k in graph.edges(keys=True)]
     
     return jsonify({'nodes':return_nodes, 'edges':return_edges})
 
