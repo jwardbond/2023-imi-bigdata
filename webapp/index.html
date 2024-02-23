@@ -83,6 +83,24 @@
                 currentRow.toggleClass('selected');
             });
 
+            table.on('dblclick', 'tbody tr', function (e) {
+                let currentRow = $(this);
+
+                // Get data of the current row
+                var rowData = table.row(this).data();
+
+                // Add
+                if (rowData.cust_id != "BANK") {
+                    window.open(`user.html?id=${rowData.cust_id}`)
+                }
+
+                // Remove 'selected' class from all rows except the current one
+                table.rows('.selected').nodes().each((row) => row.classList.remove('selected'));
+
+                // Toggle 'selected' class on the current row
+                currentRow.toggleClass('selected');
+            });
+
             
             // loads a graph
             function loadGraph(id) {
@@ -149,12 +167,18 @@
             float: left !important;
         }
 
+        #dataTable:hover {
+            cursor: pointer;
+        }
+
         /* Style for the spinner */
         .spinner-border {
             width: 5rem; /* Bigger spinner */
             height: 5rem; /* Bigger spinner */
             margin-right: 10px; /* Space between spinner and text */
         }
+
+
 
     </style>
 </body>
