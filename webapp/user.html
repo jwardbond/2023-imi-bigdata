@@ -22,7 +22,7 @@
         <h2></h2>
 
         <div id="userInfo" style="display: none;">
-            <p><strong>Name:</strong> <span id="userName"></span></p>
+            <p><strong>Name:</strong> <span id="userName"></span> </p> 
             <p><strong>Country:</strong> <span id="userCountry"></span> <span id="userCountryFlag" class="fi"></span></p>
             <p><strong>Occupation:</strong> <span id="userOccupation"></span> </p>
             <p><strong>Age:</strong> <span id="userAge"></span></p>
@@ -176,12 +176,12 @@
             return resultStr;
         }
 
-        function make_alert_icon(tooltip_text) {
+        function make_alert_icon(tooltip_text, additional_args="") {
             if (tooltip_text == "") {
                 return ''
             }
             else {
-                return `<i class="bi bi-exclamation-diamond" style="color: red;" data-bs-toggle="tooltip" data-bs-html="true" data-bs-original-title="${tooltip_text}"></i>`
+                return `<i class="bi bi-exclamation-diamond" style="color: red;" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true" data-bs-original-title="${tooltip_text}"></i>`
             }
         }
 
@@ -205,6 +205,38 @@
                             document.getElementById('userInfo').style.display = "block"
 
                             document.getElementById('userName').textContent = data.kyc.name;
+
+                            // info about name if there is a match from media sources etc   
+                            let name_popover = {}
+                            if (data.named_trafficker.exact == true) {
+                                name_popover.show = true
+                                name_popover.title = 'Exact match with a known animal trafficker!'
+                                name_popover.content = `This name is an exact and unique match with ${data.named_trafficker.matched_name.toUpperCase()}, who is a known animal trafficker. Consult the sources below:`
+                            }
+                            else if (data.named_trafficker.rough == true){
+                                name_popover.show = true
+                                name_popover.title = 'Possible match with a known animal trafficker!'
+                                name_popover.content = `This name is a close or non-unique exact match with ${data.named_trafficker.matched_name.toUpperCase()}, who is a known animal trafficker. Consult the sources below:`
+                            }
+                            else {
+                                name_popover.show = false
+                            }
+
+                            if (name_popover.show == true) {
+
+                                name_popover.content += `<ul>`
+                                data.named_trafficker.sources.forEach((source) => {
+                                    name_popover.content += `<li><a href='${source}' target='_blank'>${source.substring(0,100) + '...'}</a></li>`
+                                });
+                                name_popover.content += `</ul>`
+
+                                name_popover = `<a tabindex="0" class="btn" role="button" data-bs-toggle="popover" data-bs-html="true" data-bs-trigger="focus" title="${name_popover.title}" data-bs-content="${name_popover.content}">
+                                    <i class="bi bi-exclamation-diamond" style="color: red;"></i>
+                                    </a>`
+                                document.getElementById('userName').innerHTML += name_popover
+                            }
+
+
                             document.getElementById('userCountry').textContent = data.kyc.country;
                             document.getElementById('userCountryFlag').classList.add("fi-" + data.kyc.country.toLowerCase())
                             document.getElementById('userOccupation').textContent = data.kyc.occupation;
@@ -225,7 +257,7 @@
                             }
                         }
 
-                        document.getElementById('susScore').textContent = data.score
+                        document.getElementById('susScore').textContent = data.score.toFixed(2)
 
 
                         
@@ -306,6 +338,11 @@
                         var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
                             return new bootstrap.Tooltip(tooltipTriggerEl)
                         })
+
+                        var popover = new bootstrap.Popover(document.querySelector('[data-bs-toggle="popover"]'), {
+                            trigger: 'focus'
+                        })
+
                     })
                     .catch(error => console.error('Error:', error));
             } 

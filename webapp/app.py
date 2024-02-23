@@ -3,12 +3,13 @@ import pandas as pd
 import numpy as np
 import networkx as nx
 from flask_cors import CORS, cross_origin
+import json
 
 app = Flask(__name__)
 cors = CORS(app)
 
 # getting the data
-nodes = pd.read_parquet("../data/processed/nodes.parquet")
+nodes = pd.read_parquet("../data/processed/nodes_new.parquet")
 cash = pd.read_parquet("../data/processed/cash.parquet")
 emt = pd.read_parquet("../data/processed/emt.parquet")
 wire = pd.read_parquet("../data/processed/wire.parquet")
@@ -21,6 +22,14 @@ cash = cash.replace(np.nan, None)
 emt = emt.replace(np.nan, None)
 wire = wire.replace(np.nan, None)
 kyc = kyc.replace(np.nan, None)
+
+# named_trafficker flags
+nodes['is_exact_named_trafficker'] = (nodes['named_trafficker'] == 1) & (~nodes['named_trafficker'].isna())
+nodes['is_rough_named_trafficker'] = ((nodes['named_trafficker'] < 1) & (nodes['named_trafficker'] > 0)) & (~nodes['named_trafficker'].isna())
+# for named trafficker sources etc
+with open("../task_3/names_metadata.json") as file:
+    names_metadata = json.load(file)
+
 
 # making the network
 G = nx.MultiDiGraph()
@@ -72,6 +81,16 @@ def get_user_data():
 
     result['kyc'] = kyc.loc[kyc['cust_id'] == id].squeeze().to_dict()
     result['kyc']['country'] = nodes.loc[nodes['cust_id'] == id]['country'].iloc[0]
+
+    result['named_trafficker'] = {}
+    result['named_trafficker']['exact'] = bool(nodes.loc[nodes['cust_id'] == id]['is_exact_named_trafficker'].squeeze())
+    result['named_trafficker']['rough'] = bool(nodes.loc[nodes['cust_id'] == id]['is_rough_named_trafficker'].squeeze())
+
+    if result['named_trafficker']['exact'] or result['named_trafficker']['rough']:
+        this_metadata = names_metadata[result['kyc']['name'].lower()]
+        result['named_trafficker']['matched_name'] = this_metadata['case_name']
+        result['named_trafficker']['context'] = this_metadata['case_name_context']
+        result['named_trafficker']['sources'] = this_metadata['sources']
 
     result['emt_sent'] = emt.loc[emt['cust_id_sender'] == id].to_dict(orient='records') # current person is sender
     result['emt_rec'] = emt.loc[emt['cust_id_receiver'] == id].to_dict(orient='records') # current person is recipient
