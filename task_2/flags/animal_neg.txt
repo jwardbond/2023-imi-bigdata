@@ -36,6 +36,8 @@ shark ?skin
 shark tank
 shark vacuum
 shark week
+snake oil
+snake plant
 soap
 steakhouse
 tickets

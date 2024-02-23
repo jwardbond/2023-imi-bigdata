@@ -1,5 +1,5 @@
 NODE_WEIGHTS: #Linear comb of features. Sum doesn't matter.
-  NAMED_TRAFFICKER: 2 
+  NAMED_TRAFFICKER: 10
   LABEL: 1
   OCC_INT: 1/6
   OCC_WEALTH: 1/6
@@ -7,7 +7,7 @@ NODE_WEIGHTS: #Linear comb of features. Sum doesn't matter.
   C_LARGE: 1/2
 EDGE_WEIGHTS: #Y_e = E+W OR Y_w=W+T depending on edge type. 
   #E
-  E_AT_RISK: 1
+  E_AT_RISK: 10
   E_ROLE: 1
   E_TRAD_MED: 1
   #W
