@@ -23,7 +23,8 @@
                     <tr>
                         <th>ID</th>
                         <th>Name</th>
-                        <th>Suspicion Score</th>
+                        <th>Suspicion score</th>
+                        <th>Named trafficker?</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -56,7 +57,8 @@
                         render: function(data, type, row) {
                             return parseFloat(data).toFixed(2);
                         }
-                    }
+                    },
+                    { data: 'named_trafficker_description' }
                 ],
                 "responsive": true,
                 "lengthChange": false,
@@ -122,9 +124,7 @@
                     console.log(nodes);
 
                     // make id's node silver
-                    nodes.update({id: id, color: {background: '#C0C0C0'}});
-                    // make bank's node green
-                    nodes.update({id: 'BANK', color: {background: '#008000'}});
+                    nodes.update({id: id, color: '#C0C0C0'});
 
                     var graphData = {
                         nodes: nodes,
