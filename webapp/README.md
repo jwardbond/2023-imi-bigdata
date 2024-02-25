@@ -1,6 +1,7 @@
 # Wildlife Trafficking Webapp
 
 ## Running the webapp
+1. `pip install -r reqs_webapp.txt`
 1. Navigate to the webapp folder: `cd .\webapp\`
 2. Launch the flask server using `python app.py`. 
     - It will take around 20 seconds for the server to construct the graph.

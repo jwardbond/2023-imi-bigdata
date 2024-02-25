@@ -10,7 +10,7 @@ We've completed all of these tasks, and our approaches to each of the - and the 
 
 ## Setup
 1. If you don't have jupyter installed already, follow [this guide](https://jupyter.org/install)
-2. `pip install requirements.txt` to get the necessary packages to run all the notebooks and the webapp.
+2. `pip install -r reqs_webapp.txt` if you just want to run the GUI **OR**  `pip install -r reqs_full.txt` to include dependencies for running the notebooks.
 
 ## Running the webapp
 1. Navigate to the webapp folder: `cd .\webapp\`
