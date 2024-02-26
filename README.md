@@ -1,6 +1,8 @@
 # 2023 IMI BIGDataAIHUB Case Competition
 *[Alexandre Granzer-Guay](https://github.com/alexandregranzerguay), [Jesse Ward-Bond](https://always-learn.com/), [Muhammad Maaz](http://mmaaz.ca/index.html)*
 
+Repository here: https://github.com/jwardbond/2023-imi-bigdata
+
 This repository contains our submission for the [2023-2024 IMI BIGDataAIHUB Case Competition](https://www.utm.utoronto.ca/bigdataaihub/events/fifth-annual-2023-2024-imi-bigdataaihub-big-data-and-artificial-intelligence-competition). In this competition we were given synthetic bank transaction data (emts, wire transfers, cash transactions, and customer data) and given three tasks: 
 1. **Build a simple classifier** to flag high risk customers (money laundering)
 2. **Identify wildlife trafficking networks** in the data using graph-based techniques
