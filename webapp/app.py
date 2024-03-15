@@ -42,20 +42,20 @@ for index, row in nodes.iterrows():
     G.add_node(row['cust_id'], display_info = "{}\n{}".format(row['name'] if row['name'] else ('External from ' + row['country'] if row['country'] else 'External'), row['cust_id']))
 
 for index, row in emt.iterrows():
-    G.add_edge(row['cust_id_sender'], row['cust_id_receiver'], display_info = 'EMT, ${}'.format(row['emt_value']))
+    G.add_edge(row['cust_id_sender'], row['cust_id_receiver'], display_info = 'EMT, ${}'.format(row['emt_value']), amount = row['emt_value'])
 
 for index, row in wire.iterrows():
-    G.add_edge(row['cust_id_sender'], row['cust_id_receiver'], display_info = 'Wire, ${}'.format(row['trxn_value']))
+    G.add_edge(row['cust_id_sender'], row['cust_id_receiver'], display_info = 'Wire, ${}'.format(row['trxn_value']), amount = row['trxn_value'])
 
-G.add_node('BANK', display_info = 'BANK')
-for index, row in cash.iterrows():
-    if row['type'] == 'deposit':
-        G.add_edge(row['cust_id'], 'BANK', display_info = 'Cash deposit, ${}'.format(row['trxn_amount']))
-    if row['type'] == 'withdrawal':
-        G.add_edge('BANK', row['cust_id'], display_info = 'Cash withdrawal, ${}'.format(row['trxn_amount']))
+# G.add_node('BANK', display_info = 'BANK')
+# for index, row in cash.iterrows():
+#     if row['type'] == 'deposit':
+#         G.add_edge(row['cust_id'], 'BANK', display_info = 'Cash deposit, ${}'.format(row['trxn_amount']))
+#     if row['type'] == 'withdrawal':
+#         G.add_edge('BANK', row['cust_id'], display_info = 'Cash withdrawal, ${}'.format(row['trxn_amount']))
 
 G_nobank = G.copy()
-G_nobank.remove_edges_from(list(G.edges('BANK')))
+# G_nobank.remove_edges_from(list(G.edges('BANK')))
 G_nobank_rev = G_nobank.reverse()
 
 
@@ -85,6 +85,7 @@ def get_user_data():
     result['score'] = nodes.loc[nodes['cust_id'] == id]['score'].squeeze() 
 
     result['kyc'] = kyc.loc[kyc['cust_id'] == id].squeeze().to_dict()
+    result['kyc']['cust_id'] = nodes.loc[nodes['cust_id'] == id]['name'].iloc[0]
     result['kyc']['name'] = nodes.loc[nodes['cust_id'] == id]['name'].squeeze() # nodes df has names for some externals too
     result['kyc']['country'] = nodes.loc[nodes['cust_id'] == id]['country'].iloc[0]
 
@@ -138,6 +139,16 @@ def make_ego_graph(graph, graph_rev, node, pre_radius, post_radius):
 
 # returns nodes and edges as json in the format that vis.js expects it
 def networkx_to_json(graph):
+
+    edge_weights = list(sorted(graph.edges(data=True), key=lambda x: x[2]['display_info'], reverse=True))
+    if edge_weights:
+        max_weight = edge_weights[0][2]['amount']
+        min_weight = edge_weights[-1][2]['amount']
+    else:
+        max_weight = 1
+        min_weight = 0
+
+
     return_nodes = [{'id': n, 
                      'label': '', 
                      'value': nodes.loc[nodes['cust_id']==n]['score'].squeeze() if n != 'BANK' else 0.25, 
@@ -145,7 +156,10 @@ def networkx_to_json(graph):
                      'color': '#008000' if n == 'BANK' else ('#FF5733' if 'EXT' in n else '#3355FF')
                      } for n in graph.nodes()]
     return_edges = [{'from': u, 
-                     'to': v, 'title': graph.edges[u,v,k]['display_info']} for u, v, k in graph.edges(keys=True)]
+                     'to': v, 
+                     'title': graph.edges[u,v,k]['display_info'],
+                     'width': (graph.edges[u,v,k]['amount']-min_weight)/(max_weight-min_weight)*5+1,
+                     } for u, v, k in graph.edges(keys=True)]
     
     return jsonify({'nodes':return_nodes, 'edges':return_edges})
 
