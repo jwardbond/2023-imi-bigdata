@@ -85,7 +85,7 @@ def get_user_data():
     result['score'] = nodes.loc[nodes['cust_id'] == id]['score'].squeeze() 
 
     result['kyc'] = kyc.loc[kyc['cust_id'] == id].squeeze().to_dict()
-    result['kyc']['cust_id'] = nodes.loc[nodes['cust_id'] == id]['name'].iloc[0]
+    result['kyc']['cust_id'] = nodes.loc[nodes['cust_id'] == id]['cust_id'].iloc[0]
     result['kyc']['name'] = nodes.loc[nodes['cust_id'] == id]['name'].squeeze() # nodes df has names for some externals too
     result['kyc']['country'] = nodes.loc[nodes['cust_id'] == id]['country'].iloc[0]
 

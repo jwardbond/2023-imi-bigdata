@@ -201,9 +201,8 @@
 
                         // Populate kyc display
                         document.getElementById('custId').textContent = data.id;
-                        // if (typeof data.kyc.name === 'string'){ // if we know the user
+
                         if (data.kyc.cust_id.includes("CUST")){
-                            console.log("Here")
                             document.getElementById('userInfo').style.display = "block"
 
                             document.getElementById('userName').textContent = data.kyc.name;
