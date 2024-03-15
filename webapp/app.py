@@ -148,7 +148,7 @@ def make_ego_graph(graph, graph_rev, node, pre_radius, post_radius):
 # returns nodes and edges as json in the format that vis.js expects it
 def networkx_to_json(graph):
 
-    edge_weights = list(sorted(graph.edges(data=True), key=lambda x: x[2]['display_info'], reverse=True))
+    edge_weights = list(sorted(graph.edges(data=True), key=lambda x: x[2]['amount'], reverse=True))
     if len(edge_weights)>1:
         max_weight = edge_weights[0][2]['amount']
         min_weight = edge_weights[-1][2]['amount']
