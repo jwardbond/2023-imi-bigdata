@@ -5,7 +5,7 @@ import pandas as pd
 import numpy as np
 import json
 
-app = Flask(__name__, template_folder='./templates')
+app = Flask(__name__)
 cors = CORS(app)
 
 # getting the data
