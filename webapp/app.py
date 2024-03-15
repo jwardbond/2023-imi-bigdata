@@ -61,14 +61,6 @@ G_nobank_rev = G_nobank.reverse()
 
 print("Loaded all data, with {} nodes and {} edges".format(G.number_of_nodes(), G.number_of_edges()))
 
-@app.route('/')
-def index():
-    return render_template('index.html')
- 
-@app.route('/user.html')
-def user():
-    return render_template('user.html')
-
 @app.route('/init-data')
 def init_data():
     return jsonify(main_table)
