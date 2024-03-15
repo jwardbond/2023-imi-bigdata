@@ -15,12 +15,12 @@ We've completed all of these tasks, and our approaches to each of the - and the 
 2. `pip install -r reqs_webapp.txt` if you just want to run the GUI **OR**  `pip install -r reqs_full.txt` to include dependencies for running the notebooks.
 
 ## Running the webapp
+1. Install the requirements above.
 1. Navigate to the webapp folder: `cd .\webapp\`
 2. Launch the flask server using `python app.py`. 
     - It will take around 20 seconds for the server to construct the graph.
-3. Open index.html in a web-browser, or your favourite live server. 
-    - The table and large graphs take a second to render.
-
+3. Type `localhost:5000` in your web browser or click [here](http://127.0.0.1:5000/)
+   
 For additional information, consult the README.md within the `.\webapp\` folder.
 
 ## Running the notebooks
