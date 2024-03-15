@@ -1,11 +1,11 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS, cross_origin
 import networkx as nx
 import pandas as pd
 import numpy as np
 import json
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='./templates')
 cors = CORS(app)
 
 # getting the data
@@ -60,6 +60,14 @@ G_nobank_rev = G_nobank.reverse()
 
 
 print("Loaded all data, with {} nodes and {} edges".format(G.number_of_nodes(), G.number_of_edges()))
+
+@app.route('/')
+def index():
+    return render_template('index.html')
+ 
+@app.route('/user.html')
+def user():
+    return render_template('user.html')
 
 @app.route('/init-data')
 def init_data():
@@ -141,7 +149,7 @@ def make_ego_graph(graph, graph_rev, node, pre_radius, post_radius):
 def networkx_to_json(graph):
 
     edge_weights = list(sorted(graph.edges(data=True), key=lambda x: x[2]['display_info'], reverse=True))
-    if edge_weights:
+    if len(edge_weights)>1:
         max_weight = edge_weights[0][2]['amount']
         min_weight = edge_weights[-1][2]['amount']
     else:
