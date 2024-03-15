@@ -19,7 +19,7 @@ We've completed all of these tasks, and our approaches to each of the - and the 
 1. Navigate to the webapp folder: `cd .\webapp\`
 2. Launch the flask server using `python app.py`. 
     - It will take around 20 seconds for the server to construct the graph.
-3. Type `localhost:5000` in your web browser or click [here](http://127.0.0.1:5000/)
+3. Once the flask server is running (you should see `Running on http://127.0.0.1:5000` in the console), open the `index.html` file in any web browser.
    
 For additional information, consult the README.md within the `.\webapp\` folder.
 

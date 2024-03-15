@@ -5,7 +5,7 @@
 1. Navigate to the webapp folder: `cd .\webapp\`
 2. Launch the flask server using `python app.py`. 
     - It will take around 20 seconds for the server to construct the graph.
-3. Once the flask server is running (you should see `Running on http://127.0.0.1:5000` in the console), open `index.html` in any web browser, or click [here](index.html).
+3. Once the flask server is running (you should see `Running on http://127.0.0.1:5000` in the console), open the `index.html` in any web browser.
 
 ## Playing with the GUI
 The main table is default sorted by suspicion score, so you can see the most suspicious people at the top. You can do all sorts of things with it:
