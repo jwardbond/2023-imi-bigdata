@@ -54,10 +54,10 @@ for index, row in wire.iterrows():
 #     if row['type'] == 'withdrawal':
 #         G.add_edge('BANK', row['cust_id'], display_info = 'Cash withdrawal, ${}'.format(row['trxn_amount']))
 
-G_nobank = G.copy()
+# G_nobank = G.copy()
 # G_nobank.remove_edges_from(list(G.edges('BANK')))
-G_nobank_rev = G_nobank.reverse()
-
+# G_nobank_rev = G_nobank.reverse()
+    
 
 print("Loaded all data, with {} nodes and {} edges".format(G.number_of_nodes(), G.number_of_edges()))
 
@@ -69,7 +69,8 @@ def init_data():
 @app.route('/get-graph')
 def get_graph():
     id = request.args.get('id')
-    graph = make_ego_graph(G_nobank, G_nobank_rev, id, 2, 2)
+    graph = make_ego_graph_undirected(G, id, 2)
+    #graph = make_ego_graph_directed(G_nobank, G_nobank_rev, id, 2, 2)
     return networkx_to_json(graph)
 
 
@@ -125,7 +126,11 @@ def get_cols_prefix(df, prefix):
     return [col for col in df.columns if col.startswith(prefix)]
 
 
-def make_ego_graph(graph, graph_rev, node, pre_radius, post_radius):
+def make_ego_graph_undirected(graph, node, radius):
+    return nx.ego_graph(graph, node, radius, undirected=True)
+
+
+def make_ego_graph_directed(graph, graph_rev, node, pre_radius, post_radius):
 
     pre_nodes = nx.generators.ego_graph(graph_rev, node, radius=pre_radius, center=False).nodes()
     post_nodes = nx.generators.ego_graph(graph, node, radius=post_radius, center=False).nodes()
