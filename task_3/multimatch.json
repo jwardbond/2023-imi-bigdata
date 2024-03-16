@@ -1,0 +1,22 @@
+{
+  "charles wood": { "query": "charles good", "score": 92 },
+  "charles hood": { "query": "charles good", "score": 92 },
+  "christopher hale": { "score": 94, "query": "christopher l. hale." },
+  "christopher hall": { "score": 94, "query": "christopher l. hale." },
+  "feng liu": { "query": "fen liu", "score": 93 },
+  "liu feng": { "query": "fen liu", "score": 93 },
+  "jeffrey love": { "query": "jeffrey lowe", "score": 92 },
+  "jeffrey howe": { "query": "jeffrey lowe", "score": 92 },
+  "joe castillo": { "score": 92, "query": "jonen castillo" },
+  "jon castillo": { "score": 92, "query": "jonen castillo" },
+  "liang chen": { "score": 100, "query": "liang chen" },
+  "chen liang": { "score": 100, "query": "liang chen" },
+  "maria nguyen": { "query": "mai nguyen", "score": 91 },
+  "marie nguyen": { "query": "mai nguyen", "score": 91 },
+  "michael kelly": { "query": "michael kelly", "score": 100 },
+  "kelly michael": { "query": "michael kelly", "score": 100 },
+  "terry daniel": { "score": 96, "query": "terry daniels" },
+  "daniel terry": { "score": 96, "query": "terry daniels" },
+  "cui xue mei": { "score": 91, "query": "xiu mei cui" },
+  "cai xiu mei": { "score": 91, "query": "xiu mei cui" }
+}
