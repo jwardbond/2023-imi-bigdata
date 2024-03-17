@@ -1,0 +1,13 @@
+﻿customer_id,customer_name,news_webpage,comment
+CUST76838596,BRYAN BERG,https://www.greatfallstribune.com/story/news/2020/01/18/man-kills-grizzly-self-defense-keeps-claws-memento/4512910002/,
+CUST62443175,CHARLOTTE JONES,https://www.wsaz.com/2021/10/21/eight-indicted-stealing-deer-meat-illegally-poaching-white-tailed-deer/,
+CUST44705724,GILLES ALLAIN,https://www.cbc.ca/amp/1.5389834,
+CUST74861302,GREG ANDERSON,https://www.cbc.ca/news/canada/british-columbia/lizards-smuggled-canada-border-1.3896499,
+CUST14701697,GREGORY LOGAN,https://www.cbc.ca/news/canada/new-brunswick/narwhal-smuggle-rcmp-logan-u-s-1.3495603,
+CUST96671254,OLIVIA TERRANCE,https://globalnews.ca/news/799681/ny-woman-sentenced-for-smuggling-turtles-and-reptiles-into-canada-by-boat/,check her partners
+CUST23634360,RYAN MILLAR,https://vancouver.citynews.ca/2023/11/07/bc-bear-cub-killed-jail/,
+CUST99590442,VANESSA RONDEAU,https://www.cbc.ca/news/canada/montreal/montreal-border-animal-parts-1.6045568,
+CUST86859199,XIONG CHANG,https://www.startribune.com/feds-seize-rhinoceros-elephant-parts-from-oakdale-home/503867462/,"why is this an exact match if the names are misordered? But in other cases, misordered name is a fuzzy match."
+CUST54548565,ZHOU HONG XIA,https://www.northshoredailypost.com/eel-meat-worth-more-than-4-3-million-seized-in-ontario/,
+CUST20203155,AARON JONES,https://www.wsaz.com/2021/10/21/eight-indicted-stealing-deer-meat-illegally-poaching-white-tailed-deer/,"more suspicious than the other aaron jones, bc he received money from a casino operator SUBBOTIN KUPRIJAN ANTIPOVICH, who has received large wires from Russia"
+CUST49432995,ANTHONY NGUYEN,https://www.cbsnews.com/pittsburgh/news/pittsburgh-man-guilty-trafficking-endangered-and-invasive-fish/,more suspicious than the other anthony nguyens
