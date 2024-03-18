@@ -1,19 +1,50 @@
-,customer_id,customer_name,news_webpage,comments
-0,CUST76838596,BRYAN BERG,https://www.greatfallstribune.com/story/news/2020/01/18/man-kills-grizzly-self-defense-keeps-claws-memento/4512910002/,Exact Match - Probably not a trafficker tho
-1,CUST76631153,CAI XIU MEI,https://bc.ctvnews.ca/woman-fined-75k-for-importing-jewelry-made-from-endangered-species-1.3316564,See also CUI XUI MEI
-2,CUST60449026,CUI XIU MEI,https://bc.ctvnews.ca/woman-fined-75k-for-importing-jewelry-made-from-endangered-species-1.3316564,See also CAI XUI MEI
-3,CUST86859199,XIONG CHANG,https://www.startribune.com/feds-seize-rhinoceros-elephant-parts-from-oakdale-home/503867462/,Exact match but too young and in a different county - likely not the same person
-4,CUST34711252,WILLIAM SHELTON,https://www.justice.gov/opa/pr/three-men-plead-guilty-illegally-trafficking-american-eels,
-5,CUST14701697,GREGORY LOGAN,https://www.cbc.ca/news/canada/new-brunswick/narwhal-smuggle-rcmp-logan-u-s-1.3495603,
-6,CUST23634360,RYAN MILLAR,https://vancouver.citynews.ca/2023/11/07/bc-bear-cub-killed-jail/,Exact match but too old given court documents (see other entry)
-8,CUST54548565,ZHOU HONG XIA,https://www.northshoredailypost.com/eel-meat-worth-more-than-4-3-million-seized-in-ontario/,
-9,CUST44705724,GILLES ALLAIN,https://www.cbc.ca/amp/1.5389834,Exact match but too young - sources say 50s
-10,CUST62443175,CHARLOTTE JONES,https://www.wsaz.com/2021/10/21/eight-indicted-stealing-deer-meat-illegally-poaching-white-tailed-deer/,Right age - wrong country
-11,CUST74861302,GREG ANDERSON,https://www.pentictonherald.ca/news/national_news/article_34805637-3c63-5d9f-b94b-47afe8ab61f2.html,
-12,CUST99590442,VANESSA RONDEAU,https://www.cbc.ca/news/canada/montreal/montreal-border-animal-parts-1.6045568,
-13,CUST44710962,RICHARD AUSTIN,https://www.justice.gov/opa/pr/maine-fisherman-sentenced-illegally-trafficking-american-eels,Good match - wrong country
-14,CUST47186141,DEVIN MULLINS,https://www.justice.gov/usao-wdwa/pr/mill-owner-sentenced-prison-purchases-and-sales-stolen-figured-maple-national-forest,Not a close match
-15,CUST12868647,DANIEL TERRY,https://www.cbc.ca/news/canada/calgary/eagle-parts-trafficking-case-nets-stoney-nakoda-siblings-8-5k-fine-1.2666372,
-16,EXTERNAL269725,KEVIN TRAN,https://www.cbsnews.com/sacramento/news/endangered-sturgeon-poached-from-tracy-waterway/,
-17,CUST21084949,KEVIN RYAN,https://www.cbsnews.com/sacramento/news/endangered-sturgeon-poached-from-tracy-waterway/,Not a close match
-18,CUST79371439,STÉPHANE THERRIEN,https://www.canada.ca/en/environment-climate-change/services/environmental-enforcement/notifications/three-quebec-hunters-fined-breaking-federal-provincial-wildlife-laws.html,known trafficker big transfer to china
+customer_id,customer_name,news_webpage,comments
+CUST76838596,BRYAN BERG,https://www.greatfallstribune.com/story/news/2020/01/18/man-kills-grizzly-self-defense-keeps-claws-memento/4512910002/,Exact Match - Probably not a trafficker tho
+CUST76631153,CAI XIU MEI,https://bc.ctvnews.ca/woman-fined-75k-for-importing-jewelry-made-from-endangered-species-1.3316564,See also CUI XUI MEI
+CUST60449026,CUI XIU MEI,https://bc.ctvnews.ca/woman-fined-75k-for-importing-jewelry-made-from-endangered-species-1.3316564,See also CAI XUI MEI
+CUST86859199,XIONG CHANG,https://www.startribune.com/feds-seize-rhinoceros-elephant-parts-from-oakdale-home/503867462/,Exact match but too young and in a different county - likely not the same person
+CUST34711252,WILLIAM SHELTON,https://www.justice.gov/opa/pr/three-men-plead-guilty-illegally-trafficking-american-eels,
+CUST14701697,GREGORY LOGAN,https://www.cbc.ca/news/canada/new-brunswick/narwhal-smuggle-rcmp-logan-u-s-1.3495603,
+CUST23634360,RYAN MILLAR,https://vancouver.citynews.ca/2023/11/07/bc-bear-cub-killed-jail/,Exact match but too old given court documents (see other entry)
+CUST54548565,ZHOU HONG XIA,https://www.northshoredailypost.com/eel-meat-worth-more-than-4-3-million-seized-in-ontario/,
+CUST44705724,GILLES ALLAIN,https://www.cbc.ca/amp/1.5389834,Exact match but too young - sources say 50s
+CUST62443175,CHARLOTTE JONES,https://www.wsaz.com/2021/10/21/eight-indicted-stealing-deer-meat-illegally-poaching-white-tailed-deer/,Right age - wrong country
+CUST74861302,GREG ANDERSON,https://www.pentictonherald.ca/news/national_news/article_34805637-3c63-5d9f-b94b-47afe8ab61f2.html,
+CUST99590442,VANESSA RONDEAU,https://www.cbc.ca/news/canada/montreal/montreal-border-animal-parts-1.6045568,
+CUST44710962,RICHARD AUSTIN,https://www.justice.gov/opa/pr/maine-fisherman-sentenced-illegally-trafficking-american-eels,Good match - wrong country
+CUST47186141,DEVIN MULLINS,https://www.justice.gov/usao-wdwa/pr/mill-owner-sentenced-prison-purchases-and-sales-stolen-figured-maple-national-forest,Not a close match
+CUST12868647,DANIEL TERRY,https://www.cbc.ca/news/canada/calgary/eagle-parts-trafficking-case-nets-stoney-nakoda-siblings-8-5k-fine-1.2666372,
+EXTERNAL269725,KEVIN TRAN,https://www.cbsnews.com/sacramento/news/endangered-sturgeon-poached-from-tracy-waterway/,
+CUST21084949,KEVIN RYAN,https://www.cbsnews.com/sacramento/news/endangered-sturgeon-poached-from-tracy-waterway/,Not a close match
+CUST79371439,STÉPHANE THERRIEN,https://www.canada.ca/en/environment-climate-change/services/environmental-enforcement/notifications/three-quebec-hunters-fined-breaking-federal-provincial-wildlife-laws.html,known trafficker big transfer to china
+CUST43186271,JAMES LEWIS,https://www.justice.gov/opa/pr/two-men-indicted-illegally-trafficking-american-eels,one of 13 ppl w same name. chose this one bc sent money to a known and popular money launderer DR.SAMANTHA AVERY
+EXTERNAL232881,RICHARD AUSTIN,https://www.justice.gov/opa/pr/maine-fisherman-sentenced-illegally-trafficking-american-eels,one of 2 ppl w same name. chose this one bc money launderers in 2-hop network.
+CUST25684116,MICHAEL WONG,https://www.smh.com.au/technology/australian-scientists-csiapproach-gets-results-in-battle-against-illegal-shark-fin-trade-20151105-gkrgu7.html,"one of 5 w same name. chose this one bc known money launderer, and lots of transactions in the thousands of dollars."
+CUST20203155,AARON JONES,https://www.wsaz.com/2021/10/21/eight-indicted-stealing-deer-meat-illegally-poaching-white-tailed-deer/,one of 10 ppl w same name. chose this one bc age matches.
+EXTERNAL831700,MARIE NGUYEN,http://www.justice.gov/opa/pr/2012/February/12-enrd-246.html,tied for closenesss with two MARIA NGUYEN. But chose her bc received large wires from an international trader and money launderer.
+EXTERNAL690137,RYAN BLAIR,https://www.einnews.com/pr_news/519511300/antler-poachers-sentenced,exact and unique match.
+CUST96671254,OLIVIA TERRANCE,http://globalnews.ca/news/799681/ny-woman-sentenced-for-smuggling-turtles-and-reptiles-into-canada-by-boat/,exact and unique match.
+CUST43779997,BRIAN MILLER,https://www.cachevalleydaily.com/news/archive/2020/07/02/six-men-plead-guilty-to-poaching-29-big-game-animals-in-franklin-county/#.Xv9puShKg2w,"one of 12 ppl w same name. chose this one bc received large transfers, including from money launderers."
+EXTERNAL478758,CARLOS DOMINGUEZ,http://www.eluniversal.com.mx/estados/profepa-asegura-tigre-que-su-dueno-paseaba-en-salina-cruz-oaxaca,exact and unique match.
+CUST29879217,TIMOTHY LEWIS,https://www.justice.gov/opa/pr/three-men-plead-guilty-illegally-trafficking-american-eels,one of 3 ppl w same name. chose bc there are money launderers in their 2-hop neighborhood.
+EXTERNAL753690,JACK MURPHY,https://lethbridgeherald.com/news/lethbridge-news/2020/03/19/sentencing-delayed-in-grizzly-bear-poaching-case/,exact and unique match.
+EXTERNAL880065,WILLIAM GILBERT,https://www.wsaz.com/2021/10/21/eight-indicted-stealing-deer-meat-illegally-poaching-white-tailed-deer/,"one of 2 ppl w same name. chose this one bc he sent ~1k to a lawyer. Other one had only two transactions, of ~$20 each."
+EXTERNAL614791,GARRETT SMITH,https://www.dailydemocrat.com/2009/03/17/chico-man-pleads-guilty-in-tortoise-smuggling-conspiracy/,exact and unique match.
+CUST98068395,RYAN HICKS,https://www.cbc.ca/news/canada/london/hunters-fined-suspended-kill-bears-1.5384763?__vfz=medium%3Dsharebar,"one of 4 ppl w same name. chose bc Canadian (2 others are not), and then broke tie bc the other remaining same-name had no transactions."
+CUST97947558,MICHEAL BRYANT,https://bangordailynews.com/2017/12/15/news/portland/two-men-sentenced-in-baby-eel-trafficking-scheme/,"one of 7 ppl w same name. chose bc is zookeeper. Hard to choose this one, not sure how narratively consistent the bank people made this data with the news."
+CUST77893963,CHEN LIANG,https://www.justice.gov/opa/pr/major-seafood-dealer-and-eight-individuals-indicted-international-wildlife-trafficking,one of 6 ppl w same name (or permutation). Chose bc age matches court case.
+CUST95179572,RYAN GIBBS,https://www.fox19.com/2020/08/12/cincinnati-man-pleads-guilty-after-buying-tiger-skin-k/,"close enough match to RYAN J. GIBBS, who purchased a tiger skin for 3k, and this person also sent a transfer of around 3k"
+CUST94882844,IND.MICHAEL BROOKS,https://cityroom.blogs.nytimes.com/2009/03/19/reptile-smuggling-ring-is-broken-authorities-say/?_r=1,"one of 10 ppl w same name. chose bc 2-hops away from chinese doctor, who also has some sketchy transactions. And selling reptiles is to chinese customers."
+CUST27998702,HE JUN,https://www.sootoday.com/around-ontario/ontario-heavy-fine-for-couple-buying-black-bear-gall-bladders-1880279,"close match. One of 4 ppl  w same name. chose bc sent large amounts of money, and news article said this person is buying bear gall bladders."
+EXTERNAL544728,FENG LIU,https://www.justice.gov/opa/pr/major-seafood-dealer-and-eight-individuals-indicted-international-wildlife-trafficking,one of 40 ppl w same name or permutation. Chose bc has transactions with importer/exporters.
+CUST68851785,PAUL STEWART,https://bigcatrescue.org/illegally-kept-florida-siberian-lynx-seized-by-fwc/,one of 4 ppl w same name. chose bc sent 75k wire to someone in the USA.
+EXTERNAL850831,ZHAO JIN FENG,http://www.justice.gov/opa/pr/2012/February/12-enrd-246.html,one of 2 ppl w same name. chose bc 2-hop neighborhood has lots of large wires.
+CUST79586000,QIN XIAO HONG,https://www.justice.gov/usao-or/pr/chinese-national-pleads-guilty-smuggling-more-300-endangered-and-vulnerable-turtles-us,name is not that good of a match
+CUST55196017,BRIAN HART,https://www.canada.ca/en/environment-climate-change/services/environmental-enforcement/notifications/illegal-import-kulans.html,one of 4 ppl w same name. chose bc large wires in its 2-hop neighborhood.
+EXTERNAL898204,RONALD HICKS,https://www.cbc.ca/news/canada/london/hunters-fined-suspended-kill-bears-1.5384763?__vfz=medium%3Dsharebar,exact and unique match
+EXTERNAL742479,RICHARD OBRIEN,https://www.denverpost.com/2011/05/26/irish-nationals-sentenced-for-attempting-to-ship-rhino-horns-from-denver-area/,close enough without the apostrophe.
+CUST79029996,GREGORY ANDERSON,https://bc.ctvnews.ca/man-attempted-to-smuggle-baby-lizards-in-pocket-cbsa-1.3203708,need more KYC details to fully confirm
+CUST19602287,GREGORY ANDERSON,https://bc.ctvnews.ca/man-attempted-to-smuggle-baby-lizards-in-pocket-cbsa-1.3203708,need more KYC details to fully confirm
+CUST86846070,MICHAEL BROOKS,https://archive.nytimes.com/cityroom.blogs.nytimes.com/2009/03/19/reptile-smuggling-ring-is-broken-authorities-say/?_r=1,US citizen and large transaction to luxury goods dealer
+EXTERNAL315891,BRANDON PORTER,https://idfg.idaho.gov/press/six-men-plead-guilty-are-sentenced-2018-franklin-county-poaching-case,External with large transactions
+CUST16554717,JAMES MILLER,https://www.justice.gov/usao-wdwa/pr/mill-owner-sentenced-prison-purchases-and-sales-stolen-figured-maple-national-forest,age kind of matches and large transactions to suspect countries
