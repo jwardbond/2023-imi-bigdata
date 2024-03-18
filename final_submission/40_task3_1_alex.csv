@@ -1,0 +1,8 @@
+customer_name,customer_id,match_name,confidence,url,notes
+GREG ANDERSON, CUST74861302, GREG ANDERSON, 0.5, https://www.cbc.ca/news/canada/british-columbia/lizards-smuggled-canada-border-1.3896499, need more KYC details to fully confirm
+GREGORY ANDERSON, CUST79029996, GREGORY ANDERSON, 0.5, https://bc.ctvnews.ca/man-attempted-to-smuggle-baby-lizards-in-pocket-cbsa-1.3203708, need more KYC details to fully confirm
+GREGORY ANDERSON, CUST19602287, GREGORY ANDERSON, 0.5, https://bc.ctvnews.ca/man-attempted-to-smuggle-baby-lizards-in-pocket-cbsa-1.3203708, need more KYC details to fully confirm
+BRYAN BERG, CUST76838596, BRYAN BERG, 1, https://www.greatfallstribune.com/story/news/2020/01/18/man-kills-grizzly-self-defense-keeps-claws-memento/4512910002/
+MICHAEL BROOKS, CUST86846070, MICHAEL D. BROOKS, 0.75, https://archive.nytimes.com/cityroom.blogs.nytimes.com/2009/03/19/reptile-smuggling-ring-is-broken-authorities-say/?_r=1, US citizen and large transaction to luxury goods dealer
+BRANDON PORTER, EXTERNAL315891, BRANDON PORTER, 0.5, https://idfg.idaho.gov/press/six-men-plead-guilty-are-sentenced-2018-franklin-county-poaching-case, External with large transactions
+JAMES MILLER, CUST16554717, JAMES MILLER, 0.75, https://www.justice.gov/usao-wdwa/pr/mill-owner-sentenced-prison-purchases-and-sales-stolen-figured-maple-national-forest, age kind of matches and large transactions to suspect countries
