@@ -31,11 +31,12 @@
         </div>
 
         <div id="external_userInfo" style="display: none;">
-            <p><strong>Name:</strong> <span id="external_UserName"></span></p>
+            <p><strong>Name:</strong> <span id="external_userName"></span></p>
             <p><strong>Country:</strong> <span id="external_userCountry">Unavailable</span> <span id="external_userCountryFlag" class="fi"></span></p>
         </div>
 
         <div>
+            <p><strong>Suspected money laundering?</strong> <span id="moneyLaunder"></span></p>
             <p><strong>Suspicion score:</strong> <span id="susScore"></span></p>
         </div>
 
@@ -206,9 +207,34 @@
                             document.getElementById('userInfo').style.display = "block"
 
                             document.getElementById('userName').textContent = data.kyc.name;
+                           
+                            document.getElementById('userCountry').textContent = data.kyc.country;
+                            document.getElementById('userCountryFlag').classList.add("fi-" + data.kyc.country.toLowerCase())
+                            document.getElementById('userOccupation').textContent = data.kyc.occupation;
+                            document.getElementById('userOccupation').innerHTML += make_alert_icon(make_flag_text("This occupation is suspicious because", flag_texts, data.kyc, ['occ_']))
+                            document.getElementById('userAge').textContent = data.kyc.age;
+                            document.getElementById('userSex').textContent = data.kyc.gender;
+                            document.getElementById('userTenure').textContent = data.kyc.tenure;
+                        }
+                        else {
+                            document.getElementById('external_userInfo').style.display = "block"
+                            document.getElementById('external_userName').textContent = data.kyc.name
 
-                            // info about name if there is a match from media sources etc   
-                            let name_popover = {}
+                            if (typeof data.kyc.country === 'string') {
+                                document.getElementById('external_userCountry').textContent = data.kyc.country
+                                document.getElementById('external_userCountryFlag').classList.add("fi-" + data.kyc.country.toLowerCase())
+                            }
+                            else {
+                                document.getElementById('external_userCountry').textContent 
+                            }
+                        }
+                        
+                        document.getElementById('moneyLaunder').textContent = data.kyc.money_launder ? "Yes" : "No"
+                        document.getElementById('susScore').textContent = data.score.toFixed(2)
+
+                        // name suspicion flag
+                        // info about name if there is a match from media sources etc   
+                        let name_popover = {}
                             if (data.named_trafficker.exact == true) {
                                 name_popover.show = true
                                 name_popover.title = 'Exact match with a known animal trafficker!'
@@ -234,32 +260,14 @@
                                 name_popover = `<a tabindex="0" class="btn" role="button" data-bs-toggle="popover" data-bs-html="true" data-bs-trigger="focus" title="${name_popover.title}" data-bs-content="${name_popover.content}">
                                     <i class="bi bi-exclamation-diamond" style="color: red;"></i>
                                     </a>`
-                                document.getElementById('userName').innerHTML += name_popover
+                                
+                                if (data.kyc.cust_id.includes("CUST")){
+                                    document.getElementById('userName').innerHTML += name_popover
+                                }
+                                else {
+                                    document.getElementById('external_userName').innerHTML += name_popover
+                                }
                             }
-
-                            
-                            document.getElementById('userCountry').textContent = data.kyc.country;
-                            document.getElementById('userCountryFlag').classList.add("fi-" + data.kyc.country.toLowerCase())
-                            document.getElementById('userOccupation').textContent = data.kyc.occupation;
-                            document.getElementById('userOccupation').innerHTML += make_alert_icon(make_flag_text("This occupation is suspicious because", flag_texts, data.kyc, ['occ_']))
-                            document.getElementById('userAge').textContent = data.kyc.age;
-                            document.getElementById('userSex').textContent = data.kyc.gender;
-                            document.getElementById('userTenure').textContent = data.kyc.tenure;
-                        }
-                        else {
-                            document.getElementById('external_userInfo').style.display = "block"
-                            document.getElementById('external_UserName').textContent = data.kyc.name
-
-                            if (typeof data.kyc.country === 'string') {
-                                document.getElementById('external_userCountry').textContent = data.kyc.country
-                                document.getElementById('external_userCountryFlag').classList.add("fi-" + data.kyc.country.toLowerCase())
-                            }
-                            else {
-                                document.getElementById('external_userCountry').textContent 
-                            }
-                        }
-
-                        document.getElementById('susScore').textContent = data.score.toFixed(2)
 
 
                         
