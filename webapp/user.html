@@ -222,7 +222,10 @@
 
                             if (typeof data.kyc.country === 'string') {
                                 document.getElementById('external_userCountry').textContent = data.kyc.country
-                                document.getElementById('external_userCountryFlag').classList.add("fi-" + data.kyc.country.toLowerCase())
+                                if(data.kyc.country === 'SA'){
+                                    document.getElementById('external_userCountryFlag').classList.add("fi-za")
+                                }
+                                else {document.getElementById('external_userCountryFlag').classList.add("fi-" + data.kyc.country.toLowerCase())}
                             }
                             else {
                                 document.getElementById('external_userCountry').textContent 
