@@ -1,0 +1,72 @@
+customer_name,customer_id,network,confidence,explanation
+DAVID COOLEY,CUST45674350,DAVID COOLEY NETWORK,1,dave is a seller - buys things from SA and sells them
+ÉLISABETH LACROIX,CUST73707963,DAVID COOLEY NETWORK,1,transaction mentions lion rug
+HAZEL DATTA,CUST28295610,DAVID COOLEY NETWORK,1,bought ivory from dave
+JEREMY DAVIS,CUST32902928,DAVID COOLEY NETWORK,0.60,big transaction from dave
+DR.EDWARD FUENTES,CUST98840303,DAVID COOLEY NETWORK,0.75,big transaction from dave
+MATHIEU BOULANGER,EXTERNAL796777,DAVID COOLEY NETWORK,0.75,big transaction from dave - could be mule
+ROBERT CARROLL,EXTERNAL531873,DAVID COOLEY NETWORK,1,bought ivory from dave
+JAKE MITCHELL,EXTERNAL579387,DAVID COOLEY NETWORK,0.75,From SA - likely a supplier
+SAMANTHA OWEN,EXTERNAL676409,DAVID COOLEY NETWORK,0.75,From SA - likely a supplier
+LANGALIBALELE SHOZI,EXTERNAL609165,DAVID COOLEY NETWORK,0.75,From SA - likely a supplier
+MOVECARGO,EXTERNAL172924,DAVID COOLEY NETWORK,0.75,Freight company
+SUSAN FREEMAN,CUST23727364,DAVID COOLEY NETWORK,0.75,LARGE TRANSACTION WITH DAVE
+TIFFANY GARCIA,CUST21628170,DAVID COOLEY NETWORK,0.75,LARGE TRANSACTION WITH DAVE
+DR.MARC GÉLINAS,CUST93196689,SUSAN FREEMAN NETWORK,1,large transaction with susan and hes a shipping agent
+DAVID WILKERSON,CUST85769551,DAVID WILKERSON NETWORK,1,David is EXPORTING buying animal parts in Canada and selling overseas.
+FREIGHTDRIVE,EXTERNAL134599,DAVID WILKERSON NETWORK,0.75,Freight company
+DR.JOHN WADE,CUST33059790,DAVID WILKERSON NETWORK,1,John is a zookeeper that sells bear parts to David wilkerson
+STEVEN CRUZ,CUST80174234,DAVID WILKERSON NETWORK,1,Steven is an animal trainer
+FAN DAN DAN,EXTERNAL588946,DAVID WILKERSON NETWORK,1,From China - likely a purchaser
+ZHAO PING,EXTERNAL650015,DAVID WILKERSON NETWORK,1,From China - likely a purchaser
+ASHLEY RUSSEL,EXTERNAL527948,DAVID WILKERSON NETWORK,1,from uk but big transfer to Dave - purchaser?
+RANDY JONES,EXTERNAL611016,DAVID WILKERSON NETWORK,0.75,large transfer to dave and others - mule?
+DING JIAN PING,EXTERNAL317650,DAVID WILKERSON NETWORK,1,From China - likely a purchaser
+TRICIA ORTIZ,EXTERNAL198315,DAVID WILKERSON NETWORK,0.5,large transfer to dave - but shes from canada
+ERICA MCFARLAND,CUST41274277,DING JIAN PING NETWORK,1,Huge random e-transfers from China (DING JIAN PING) - likely a mule
+SHAWN STONE,CUST41274277,DING JIAN PING NETWORK,1,Huge random e-transfers from China (DING JIAN PING) - likely a mule
+ERMIL VILENOVICH VLASOV,EXTERNAL785554,STEVEN CRUZ NETWORK,0.75,huge transaction with steven -laundering?
+DR.JOHN WADE,CUST33059790,DR.JOHN WADE NETWORK,1,John is a zookeeper that sells bear parts to David wilkerson
+EMILY DALTON,CUST33059790,DR.JOHN WADE NETWORK,0.7,Emily has e-transfered large amounts to John Wade - and received huge amounts from Australia - mule?
+VICTOR MARTINEZ,CUST70275199,DR.JOHN WADE NETWORK,0.5,Victor has e-transfered large amounts to John Wade but is a loan person so
+MICHAEL RICHARDS,CUST48654180,DR.JOHN WADE NETWORK,1,Michael has e-transfered large amounts and is a private jet operator
+DR.DARSHIT SAWHNEY,CUST99163899,DR.JOHN WADE NETWORK,0.75,John sends him a lot of money - probably tax fraud lol
+MICHELLE BRISSON-LAPIERRE,CUST35475939,DR.JOHN WADE NETWORK,0.25,John sends her a lot of money - lawyering up
+STEPHANIE HENSLEY,EXTERNAL590333,DR.JOHN WADE NETWORK,0.25,decent sized transfer from john - not much else
+BRIAN CASE,EXTERNAL624650,DR.JOHN WADE NETWORK,1,Large transfer from country at risk
+JOSEPH HERNANDEZ,EXTERNAL535585,DR.JOHN WADE NETWORK,0.75,Large transfer to john
+WILLIAM RODRIGUES,EXTERNAL152078,DR.JOHN WADE NETWORK,0.75,Large transfer to john - likes antiques
+DAVID FERRELL,CUST40896809,WILLIAM RODRIGUES NETWORK,0.25,large transfer to will - but jewlery dealer
+ANGELA CROSS,CUST23877158,ANGELA CROSS NETWORK,1,Big transfer to Australia and she works with nematodes
+GLEN SALAS,EXTERNAL208878,ANGELA CROSS NETWORK,1,recieved a lort of money from angela and sent a similar amount to a gambling site
+JARED WISE,CUST38458509,GLEN SALAS NETWORK,0.75,large transfer from glen - laundering?
+KAYLA MYERS,CUST13026081,KAYLA MYERS NETWORK,0.5,big transfer to at-risk country - marine job - rattlesnake boots
+ZHANG GUI HUA,EXTERNAL562698,KAYLA MYERS NETWORK,0.5,large transfer from kayla - supplier?
+ZHANG JIAN,EXTERNAL779835,KAYLA MYERS NETWORK,0.5,repaire kaylas rattlesnake boots
+ZHUANG JUAN,CUST34286703,ZHUANG JUAN NETWORK,0.5,transactions mentions snake skin belt
+MICHAEL EVANS,EXTERNAL871336,ZHUANG JUAN NETWORK,0.5,transaction mentions snake skin belt
+DAISY SMITH,CUST77650473,DAISY SMITH NETWORK,1,bought meat and skins from a supplier - sends overseas probably a coordinater/trader
+EXPRESSDRIVE,CUST77650473,DAISY SMITH NETWORK,0.75,shipping company
+LAGAN DESAI,EXTERNAL907939,DAISY SMITH NETWORK,1,supplier of canadian animal parts
+DEREK SHAFFER,CUST48808682,DAISY SMITH NETWORK,1,meat salesman
+JESSICA MURRAY,CUST20442883,DAISY SMITH NETWORK,1,import-exporter with v.sus transactions - buyer?
+TROY HERNANDEZ,CUST44605894,DAISY SMITH NETWORK,0.75,import-exporter with v.sus transactions - buyer?
+DR.JOSHUA WHITAKER,CUST46735985,DAISY SMITH NETWORK,0.5,kinda inexplicably large transfer to daisy
+JUDY WILLIAMS,CUST90947322,DAISY SMITH NETWORK,0.75,large transfer to daisy - fashion designer - skins?
+DOROFEEVA ANZHELA VIKTOROVNA,CUST32492795,DAISY SMITH NETWORK,1,zookeeper
+JESSICA MURRAY,CUST20442883,JESSICA MURRAY NETWORK,1,import-exporter with v.sus transactions -coordinator? transactions balance
+MO NA,EXTERNAL513953, JESSICA MURRAY NETWORK,1,large transfer to jessica from china
+DIANE ROJAS,EXTERNAL228489,JESSICA MURRAY NETWORK,1,large transfer to jessica from australia
+ZHOU TING,EXTERNAL352953,JESSICA MURRAY NETWORK,1,large transfer to jessica from china
+EDUARDO CALHOUN,CUST55975993,MO NA NETWORK,1,huge transfer from mo for a dietician - mule?
+THOMAS BROWN,CUST90346975,MO NA NETWORK,1,huge transfer from mo for a barista - mule?
+DANIELLE STEELE,CUST11546110,DIANE ROJAS NETWORK,1,shes a fisherman getting money from AU
+BEVERLY RICHARDSON,CUST56882939,DIANE ROJAS NETWORK,0.5,large transfer from diane
+LIC. MARCHO ANTONIO BUSTOS,CUST88434258,LAGAN DESAI NETWORK,0.75,large transfers for a butcher
+ROBIN WHITE,CUST19789963,LAGAN DESAI NETWORK,0.25,Large transfer - but a physicist
+
+SUBBOTIN GORDEJ GERMANOVICH
+JOSHUA PETERSON, EXTERNAL416725,,,,
+BRIAN MITCHELL, CUST26958534, DAVE WILKERSON VIA RANDY JONES,0.5,large transfers
+HU FENG LAN,CUST70236467,DAVID WILKERSON VIA RANDY JONES,0.5,large transfers - travel angency - crypto
+ODETTE ST-PIERRE,CUST23565495,BARBARA ROW NETWORK,0.25,this whole network is a pretty high-flying network

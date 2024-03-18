@@ -1,0 +1,6 @@
+Main actors in each wild-life trafficking network the team found in the data
+Please submit a single column csv file (no header) containing all the main actors (customer_id) in each wild-life trafficking network you have found in the data. The number of customers should not exceed 200. Please name this file in the following format: Team#{your_team_number}_task2.csv.
+IWT News hit matches
+This file should include the following information in a csv format: customer_id, customer_name, news_webpage, and comments (optional, if you need to provide any additional details). Please note that the news_webpage is mandatory for each customer you find. Please use the following format for this file: Team#{your_team_number}_task3_1.csv.
+Additional suspicious customer
+This file should include the customer id of any suspicious customers connected to customers having negative news. Please be mindful of false positives, as they might reduce your score. Please use the following format format for this file: Team#{your_team_number}_task3_2.csv.
