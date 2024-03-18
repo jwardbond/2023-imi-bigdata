@@ -1,0 +1,22 @@
+customer_name,customer_id,match_name,confidence,url,notes
+JAMES LEWIS,CUST43186271,JAMES LEWIS,0.75,https://www.justice.gov/opa/pr/two-men-indicted-illegally-trafficking-american-eels,one of 13 ppl w same name. chose this one bc sent money to a known and popular money launderer DR.SAMANTHA AVERY
+RICHARD AUSTIN,EXTERNAL232881,RICHARD D. AUSTIN,0.75,https://www.justice.gov/opa/pr/maine-fisherman-sentenced-illegally-trafficking-american-eels,one of 2 ppl w same name. chose this one bc money launderers in 2-hop network.
+GILLES ALLAIN,CUST44705724,GILLES ALLAIN,1,https://www.cbc.ca/amp/1.5389834,exact and unique match. No network.
+MICHAEL WONG,CUST25684116,MICHAEL KWONG,0.5,https://www.smh.com.au/technology/australian-scientists-csiapproach-gets-results-in-battle-against-illegal-shark-fin-trade-20151105-gkrgu7.html,"one of 5 w same name. chose this one bc known money launderer, and lots of transactions in the thousands of dollars."
+AARON JONES,CUST20203155,AARON JONES,1,https://www.wsaz.com/2021/10/21/eight-indicted-stealing-deer-meat-illegally-poaching-white-tailed-deer/,one of 10 ppl w same name. chose this one bc age matches.
+MARIE NGUYEN,EXTERNAL831700,MAI NGUYEN,0.5,http://www.justice.gov/opa/pr/2012/February/12-enrd-246.html,tied for closenesss with two MARIA NGUYEN. But chose her bc received large wires from an international trader and money launderer.
+CHARLOTTE JONES,CUST62443175,CHARLOTTE JONES,1,https://www.wsaz.com/2021/10/21/eight-indicted-stealing-deer-meat-illegally-poaching-white-tailed-deer/,exact and unique match. Age matches.
+RYAN BLAIR,EXTERNAL690137,RYAN BLAIR,1,https://www.einnews.com/pr_news/519511300/antler-poachers-sentenced,exact and unique match.
+OLIVIA TERRANCE,CUST96671254,OLIVIA TERRANCE,1,http://globalnews.ca/news/799681/ny-woman-sentenced-for-smuggling-turtles-and-reptiles-into-canada-by-boat/,exact and unique match.
+KEVIN TRAN,EXTERNAL269725,KEVIN TRAN,1,https://sacramento.cbslocal.com/2022/02/10/endangered-sturgeon-poached-from-tracy-waterway/,exact and unique match.
+STÉPHANE THERRIEN,CUST79371439,STÉPHANE THERRIEN,1,https://www.canada.ca/en/environment-climate-change/services/environmental-enforcement/notifications/three-quebec-hunters-fined-breaking-federal-provincial-wildlife-laws.html,exact and unique match.
+BRIAN MILLER,CUST43779997,BRIAN MILLER,0.75,https://www.cachevalleydaily.com/news/archive/2020/07/02/six-men-plead-guilty-to-poaching-29-big-game-animals-in-franklin-county/#.Xv9puShKg2w,"one of 12 ppl w same name. chose this one bc received large transfers, including from money launderers."
+VANESSA RONDEAU,CUST99590442,VANESSA RONDEAU,1,https://www.cbc.ca/news/canada/montreal/montreal-border-animal-parts-1.6045568,exact and unique match.
+CARLOS DOMINGUEZ,EXTERNAL478758,CARLOS DOMINGUEZ,1,http://www.eluniversal.com.mx/estados/profepa-asegura-tigre-que-su-dueno-paseaba-en-salina-cruz-oaxaca,exact and unique match.
+TIMOTHY LEWIS,CUST29879217,TIMOTHY LEWIS,1,https://www.justice.gov/opa/pr/three-men-plead-guilty-illegally-trafficking-american-eels,one of 3 ppl w same name. chose bc there are money launderers in their 2-hop neighborhood.
+JACK MURPHY,EXTERNAL753690,JACK MURPHY,1,https://lethbridgeherald.com/news/lethbridge-news/2020/03/19/sentencing-delayed-in-grizzly-bear-poaching-case/,exact and unique match.
+WILLIAM GILBERT,EXTERNAL880065,WILLIAM GILBERT,1,https://www.wsaz.com/2021/10/21/eight-indicted-stealing-deer-meat-illegally-poaching-white-tailed-deer/,"one of 2 ppl w same name. chose this one bc he sent ~1k to a lawyer. Other one had only two transactions, of ~$20 each."
+GARRETT SMITH,EXTERNAL614791,GARRETT SMITH,1,https://www.dailydemocrat.com/2009/03/17/chico-man-pleads-guilty-in-tortoise-smuggling-conspiracy/,exact and unique match.
+RYAN HICKS,CUST98068395,RYAN HICKS,0.75,https://www.cbc.ca/news/canada/london/hunters-fined-suspended-kill-bears-1.5384763?__vfz=medium%3Dsharebar,"one of 4 ppl w same name. chose bc Canadian (2 others are not), and then broke tie bc the other remaining same-name had no transactions."
+ZHOU HONG XIA,CUST54548565,ZHOU HONG XIA,1,https://www.northshoredailypost.com/eel-meat-worth-more-than-4-3-million-seized-in-ontario/,exact and unique match.
+MICHEAL BRYANT,CUST97947558,MICHEAL BRYANT,1,https://bangordailynews.com/2017/12/15/news/portland/two-men-sentenced-in-baby-eel-trafficking-scheme/,"one of 7 ppl w same name. chose bc is zookeeper. Hard to choose this one, not sure how narratively consistent the bank people made this data with the news."
