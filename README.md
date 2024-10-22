@@ -1,3 +1,5 @@
+*Update: We won first place! Thanks to the competition organizers and everyone involved*
+
 # 2023 IMI BIGDataAIHUB Case Competition
 *[Alexandre Granzer-Guay](https://github.com/alexandregranzerguay), [Jesse Ward-Bond](https://always-learn.com/), [Muhammad Maaz](http://mmaaz.ca/index.html)*
 
